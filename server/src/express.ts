@@ -80,5 +80,5 @@ app.post("/api/stream_chat", chatStream);
 
 const port = 8085;
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+  console.log(`Example app listening on port ${port}`);
+});

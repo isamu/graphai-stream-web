@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "eslint": "eslint --fix --ext .ts ./src",
+    "format": "prettier --write 'src/*.ts' .eslintrc.js",
     "server": "ts-node src/express.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
