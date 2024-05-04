@@ -6,6 +6,7 @@ import cors from "cors";
 // import { GraphAI, AgentFunction } from "graphai";
 // import { defaultTestAgents } from "../graphai/agents/agents";
 import { chatStream } from "./streaming";
+import { slashGPTStream } from "./slashgpt";
 
 const hostName = "https://graphai-demo.web.app";
 
@@ -73,6 +74,7 @@ app.use(cors(options));
 //app.post("/api/agents/:agentId", agentDispatcher);
 
 app.post("/api/stream_chat", chatStream);
+app.post("/api/stream_slash", slashGPTStream);
 
 // app.get("/api/agents/:agentId/docs", agentDocsReq);
 // app.get("/api/agents", agentsList);

@@ -14,7 +14,8 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2",
-    "openai": "^4.40.2"
+    "openai": "^4.40.2",
+    "slashgpt": "https://github.com/receptron/slashgpt-js.git#streaming"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
