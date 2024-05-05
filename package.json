@@ -11,6 +11,7 @@
   "dependencies": {
     "@vueuse/head": "^1.0.16",
     "core-js": "^3.25.2",
+    "graphai": "https://github.com/receptron/graphai.git",
     "pinia": "^2.1.7",
     "vue": "^3.4.4",
     "vue-i18n": "^9.8.0",
