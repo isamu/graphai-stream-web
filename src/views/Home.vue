@@ -5,9 +5,8 @@
         <button class="text-white font-bold items-center rounded-full px-4 py-2 m-1 bg-sky-500 hover:bg-sky-700" @click="chat">Chat</button>
         <button class="text-white font-bold items-center rounded-full px-4 py-2 m-1 bg-sky-500 hover:bg-sky-700" @click="slash">Slash</button>
       </div>
-      {{ messages.join("") }}
+      {{ messages.join("").split("___END___")[0] }}
     </div>
-
   </div>
 </template>
 
@@ -20,15 +19,12 @@ export async function* streamChatCompletion(url: string) {
   // const url = "http://localhost:8085/api/stream_chat";
   // const url = "http://localhost:8085/api/stream_slash";
 
-  const completion = await fetch(
-    url,
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-    }
-  );
+  const completion = await fetch(url, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+  });
 
   const reader = completion.body?.getReader();
 
@@ -56,7 +52,6 @@ export default defineComponent({
   setup() {
     const messages = ref([]);
     const run = async (url: string) => {
-      console.log(url);
       const generator = streamChatCompletion(url);
       for await (const token of generator) {
         if (token) {
@@ -64,11 +59,18 @@ export default defineComponent({
           messages.value.push(token);
         }
       }
-    }
+      try {
+        const payload_data = messages.value.join("").split("___END___")[1];
+        const data = JSON.parse(payload_data);
+        console.log(data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
     const chat = async () => {
       const url = "http://localhost:8085/api/stream_chat";
       run(url);
-    }
+    };
     const slash = async () => {
       const url = "http://localhost:8085/api/stream_slash";
       run(url);

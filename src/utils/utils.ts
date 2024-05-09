@@ -2,7 +2,6 @@ import { computed } from "vue";
 import { useI18n } from "vue-i18n";
 import router from "@/router";
 
-
 export const useLang = () => {
   const i18n = useI18n();
 
@@ -32,4 +31,3 @@ export const useLocalizedRoute = () => {
     router.push(localizedUrl(path));
   };
 };
-

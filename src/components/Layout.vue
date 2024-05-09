@@ -49,7 +49,6 @@ export default defineComponent({
 
     useI18nParam();
 
-
     const toggleMenu = () => {
       menu.value = !menu.value;
     };

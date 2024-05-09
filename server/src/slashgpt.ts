@@ -7,7 +7,7 @@ import { ChatSession, ChatConfig, ManifestData } from "slashgpt";
 export async function streamSlashGPT(callback: (token: string) => void) {
   const config = new ChatConfig(path.resolve(__dirname));
   const session = new ChatSession(config, {} as ManifestData);
-  session.append_user_question("日本の歴史について2000文字でまとめてください");
+  session.append_user_question("日本の歴史について200文字でまとめてください");
   await session.call_loop(() => {}, callback);
 
   return session.history.messages();
@@ -21,17 +21,23 @@ export const slashGPTStream = async (req: express.Request, res: express.Response
 
   const callback = (token: string) => {
     if (token) {
-      res.write(token);
+      res.write(token)
     }
   };
 
   try {
-    await streamSlashGPT(callback);
+    const response = await streamSlashGPT(callback);
+    // console.log(response)
+    const json_data = JSON.stringify(response);
+    res.write("___END___");
+    res.write(json_data);
+    return res.end();
+
   } catch (e) {
     console.log(e);
     return res.status(500).send({ message: "Internal server error" });
   }
-  return res.end();
+  //return res.end();
 };
 
 /*
