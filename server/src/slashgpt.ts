@@ -37,7 +37,6 @@ export const slashGPTStream = async (req: express.Request, res: express.Response
     console.log(e);
     return res.status(500).send({ message: "Internal server error" });
   }
-  //return res.end();
 };
 
 /*

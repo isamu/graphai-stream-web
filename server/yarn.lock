@@ -1324,6 +1324,10 @@ gopd@^1.0.1:
   dependencies:
     get-intrinsic "^1.1.3"
 
+"graphai@https://github.com/receptron/graphai.git":
+  version "0.2.8"
+  resolved "https://github.com/receptron/graphai.git#add639fcb49f146f455b623392ec3320f4657762"
+
 graphemer@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/graphemer/-/graphemer-1.4.0.tgz#fb2f1d55e0e3a1849aeffc90c4fa0dd53a0e66c6"
