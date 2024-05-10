@@ -5,6 +5,7 @@ import cors from "cors";
 
 import { chatStream } from "./streaming";
 import { slashGPTStream } from "./slashgpt";
+import { agentDispatcher } from "./agent_dispatcher";
 
 export const app = express();
 
@@ -21,9 +22,7 @@ app.use(cors(options));
 app.post("/api/stream_chat", chatStream);
 app.post("/api/stream_slash", slashGPTStream);
 
-//app.get("/api/agents/:agentId/docs", agentDocsReq);
-//app.get("/api/agents", agentsList);
-// app.get("/api/hello", hello_response);
+app.post("/agents/:agentId", agentDispatcher);
 
 const port = 8085;
 app.listen(port, () => {

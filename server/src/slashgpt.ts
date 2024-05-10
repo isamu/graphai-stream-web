@@ -27,9 +27,8 @@ export const slashGPTStream = async (req: express.Request, res: express.Response
 
   try {
     const response = await streamSlashGPT(callback);
-    // console.log(response)
-    const json_data = JSON.stringify(response);
     res.write("___END___");
+    const json_data = JSON.stringify(response);
     res.write(json_data);
     return res.end();
 

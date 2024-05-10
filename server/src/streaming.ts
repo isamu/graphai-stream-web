@@ -34,6 +34,8 @@ export const chatStream = async (req: express.Request, res: express.Response) =>
     for await (const data of streamChatCompletion()) {
       res.write(data);
     }
+    res.write("___END___");
+    res.write("{}");
   } catch (e) {
     console.log(e);
     return res.status(500).send({ message: "Internal server error" });
