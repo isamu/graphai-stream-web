@@ -45,11 +45,82 @@ const useAgentFilter = (callback: (context: AgentFunctionContext, data: T) => vo
           stream: true,
         },
       },
-      agentIds: ["streamMockAgent"],
+      agentIds: ["streamMockAgent", "slashGPTAgent"],
     },
   ];
   return agentFilters;
 };
+
+const graph_data = {
+  loop: {
+    while: ":people",
+  },
+  nodes: {
+    people: {
+      value: ["Steve Jobs", "Elon Musk", "Nikola Tesla"],
+      update: ":retriever.array",
+    },
+    result: {
+      value: [],
+      update: ":reducer2",
+    },
+    usage: {
+      value: {},
+      update: ":acountant",
+    },
+    retriever: {
+      agent: "shiftAgent",
+      inputs: [":people"],
+    },
+    query: {
+      agent: "slashGPTAgent",
+      params: {
+        manifest: {
+          prompt: "Describe about the person in less than 100 words",
+        },
+        isStreaming: true,
+      },
+      inputs: [":retriever.item"],
+    },
+    reducer1: {
+      agent: "popAgent",
+      inputs: [":query"],
+    },
+    reducer2: {
+      agent: "pushAgent",
+      inputs: [":result", ":reducer1.item"],
+      isResult: true,
+    },
+    usageData: {
+      agent: "totalAgent",
+      inputs: [":reducer2.$0"],
+    },
+    acountant: {
+      agent: "totalAgent",
+      inputs: [":usage", ":usageData.usage"],
+    },
+  },
+};
+/*
+const graph_data = {
+  version: 0.3,
+  nodes: {
+    query: {
+      inputs: [{}],
+      agent: "streamMockAgent",
+      params: {
+        isStreaming: true,
+        message: "this is from the server",
+      },
+      isResult: true,
+    },
+    answer: {
+      agent: "sleeperAgent",
+      inputs: ["query.choices.$0.message"],
+    },
+  },
+};
+*/
 
 export default defineComponent({
   name: "HomePage",
@@ -64,34 +135,11 @@ export default defineComponent({
       console.log(data);
     };
     const agentFilters = useAgentFilter(callback);
+    console.log(agents);
     const runGraph = async () => {
       const graphai = new GraphAI(
-        {
-          version: 0.3,
-          nodes: {
-            /*
-            query: {
-              inputs: [{}],
-              agent: "groqAgent",
-              params: {
-                model: "mixtral-8x7b-32768",
-                query: "hello",
-              },
-              isResult: true,
-              },
-            */
-            query: {
-              inputs: [{}],
-              agent: "streamMockAgent",
-              isResult: true,
-            },
-            answer: {
-              agent: "sleeperAgent",
-              inputs: ["query.choices.$0.message"],
-            },
-          },
-        },
-        { ...agents, ...{ sleeperAgent, groqAgent: sleeperAgent } },
+        graph_data,
+        { ...agents, ...{ sleeperAgent, groqAgent: sleeperAgent, slashGPTAgent: sleeperAgent } },
         { agentFilters },
       );
       result.value = await graphai.run();
