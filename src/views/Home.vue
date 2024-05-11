@@ -63,10 +63,7 @@ const graph_data = {
     result: {
       value: [],
       update: ":reducer2",
-    },
-    usage: {
-      value: {},
-      update: ":acountant",
+      isResult: true,
     },
     retriever: {
       agent: "shiftAgent",
@@ -89,15 +86,6 @@ const graph_data = {
     reducer2: {
       agent: "pushAgent",
       inputs: [":result", ":reducer1.item"],
-      isResult: true,
-    },
-    usageData: {
-      agent: "totalAgent",
-      inputs: [":reducer2.$0"],
-    },
-    acountant: {
-      agent: "totalAgent",
-      inputs: [":usage", ":usageData.usage"],
     },
   },
 };
@@ -142,8 +130,11 @@ export default defineComponent({
         { ...agents, ...{ sleeperAgent, groqAgent: sleeperAgent, slashGPTAgent: sleeperAgent } },
         { agentFilters },
       );
+      graphai.onLogCallback = (log) => {
+        console.log(log);
+      };
+      // result.value = await graphai.run();
       result.value = await graphai.run();
-      console.log(result.value);
     };
 
     const messages = ref([]);
