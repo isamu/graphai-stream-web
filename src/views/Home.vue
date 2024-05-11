@@ -1,94 +1,69 @@
 <template>
   <div class="home">
-    <div class="flex items-center justify-center">
+    <div class="items-center justify-center">
       <div>
         <button class="text-white font-bold items-center rounded-full px-4 py-2 m-1 bg-sky-500 hover:bg-sky-700" @click="agentServer">AgentServer</button>
       </div>
       {{ messages.join("").split("___END___")[0] }}
+      <div>
+        Streaming<br />
+        {{ graphData }}
+      </div>
+      <div>
+        Result<br />
+        {{ result }}
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-
-
 import { defineComponent, ref } from "vue";
+import { AgentFunctionContext } from "graphai/lib/type";
+
 import { GraphAI } from "graphai";
 // import { sleeperAgent, groqAgent } from "graphai/lib/experimental_agents";
 import { sleeperAgent } from "graphai/lib/experimental_agents/sleeper_agents";
 import * as agents from "graphai/lib/vanilla_agents";
-//import { sleeperAgent } from "graphai/lib/vanilla_agents";
 
-import { AgentFilterFunction } from "@/type";
+import { streamAgentFilterBuilder, httpAgentFilter } from "./agentFilter";
 
-import { streamChatCompletion } from "./utils";
+const useAgentFilter = (callback: (context: AgentFunctionContext, data: T) => void) => {
+  const streamAgentFilter = streamAgentFilterBuilder(callback);
 
-
-// const callback = 
-const streamAgentFilter: AgentFilterFunction = async (context, next) => {
-  context.filterParams.streamTokenCallback = (data: string) => {
-    console.log(data);
-    // callback(context, data);
-  };
-  return next(context);
-};
-
-const httpAgentFilter: AgentFilterFunction = async (context) => {
-  if (context?.filterParams?.server) {
-    const { baseUrl } = context.filterParams.server;
-    const agentId = context.debugInfo.agentId;
-    const url = baseUrl + agentId;
-
-    const generator = streamChatCompletion(url, {
-      params: {
-        isStreaming: true,
-        message: "this is from the server",
-      }
-    });
-    const messages = [];
-    for await (const token of generator) {
-      // callback to stream filter
-      if (token) {
-        messages.push(token);
-        if (messages.join("").indexOf("___END___") === -1) {
-          if (context.filterParams.streamTokenCallback) {
-            context.filterParams.streamTokenCallback(token);
-          }
-        }
-      }
-    }
-
-    const payload_data = messages.join("").split("___END___")[1];
-    const data = JSON.parse(payload_data);
-    return data;
-  }
-  return next(context);
-};
-
-
-
-const agentFilters = [
-  {
-    name: "streamAgentFilter",
-    agent: streamAgentFilter,
-  },
-  {
-    name: "httpAgentFilter",
-    agent: httpAgentFilter,
-    filterParams: {
-      server: {
-        baseUrl: "http://localhost:8085/agents/",
-        stream: true,
-      },
+  const agentFilters = [
+    {
+      name: "streamAgentFilter",
+      agent: streamAgentFilter,
     },
-    agentIds: ["streamMockAgent"]
-  },
-];
+    {
+      name: "httpAgentFilter",
+      agent: httpAgentFilter,
+      filterParams: {
+        server: {
+          baseUrl: "http://localhost:8085/agents/",
+          stream: true,
+        },
+      },
+      agentIds: ["streamMockAgent"],
+    },
+  ];
+  return agentFilters;
+};
 
 export default defineComponent({
   name: "HomePage",
   components: {},
   setup() {
+    const graphData = ref<Record<string, any>>({});
+    const result = ref<any>({});
+
+    const callback = (context: AgentFunctionContext, data: string) => {
+      const { nodeId } = context.debugInfo;
+      graphData.value[nodeId] = (graphData.value[nodeId] ?? "") + data;
+      console.log(data);
+    };
+    const agentFilters = useAgentFilter(callback);
     const runGraph = async () => {
       const graphai = new GraphAI(
         {
@@ -116,17 +91,16 @@ export default defineComponent({
             },
           },
         },
-        { ...agents, ...{sleeperAgent, groqAgent: sleeperAgent} },
-        { agentFilters }
+        { ...agents, ...{ sleeperAgent, groqAgent: sleeperAgent } },
+        { agentFilters },
       );
-      const r = await graphai.run();
-      console.log(r)
+      result.value = await graphai.run();
+      console.log(result.value);
     };
 
     const messages = ref([]);
+    /*
     const run = async (url: string) => {
-      runGraph();
-      /*
       messages.value = [];
       const generator = streamChatCompletion(url, {
         params: {
@@ -147,12 +121,13 @@ export default defineComponent({
         console.log(data);
       } catch (e) {
         console.log(e);
-        }
-      */
-    };
+      }
+      };
+    */
     const agentServer = async () => {
-      const url = "http://localhost:8085/agents/streamMockAgent";
-      run(url);
+      // const url = "http://localhost:8085/agents/streamMockAgent";
+      // run(url);
+      runGraph();
     };
     return {
       messages,
@@ -161,6 +136,9 @@ export default defineComponent({
       // slash,
       agentServer,
       runGraph,
+
+      graphData,
+      result,
     };
   },
 });

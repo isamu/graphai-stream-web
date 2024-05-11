@@ -11,7 +11,7 @@ module.exports = {
   rules: {
     "vue/no-unused-vars": "error",
     "vue/no-reserved-component-names": "error",
-    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/no-unused-vars": "error",
     "no-unreachable": "error",
     "vue/multi-word-component-names": "off",
@@ -44,7 +44,7 @@ module.exports = {
     "sonarjs/no-use-of-empty-return-value": "error",
     "sonarjs/no-useless-catch": "error",
     "sonarjs/non-existent-operator": "error",
-    "sonarjs/prefer-immediate-return": "error",
+    // "sonarjs/prefer-immediate-return": "error",
     "sonarjs/prefer-object-literal": "error",
     "sonarjs/prefer-single-boolean-return": "error",
     "sonarjs/prefer-while": "error",

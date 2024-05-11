@@ -28,8 +28,8 @@ export async function* streamChatCompletion(url: string) {
       params: {
         isStreaming: true,
         message: "this is from the server",
-      }
-    })
+      },
+    }),
   });
 
   const reader = completion.body?.getReader();
@@ -68,7 +68,7 @@ export default defineComponent({
       }
       try {
         const payload_data = messages.value.join("").split("___END___")[1];
-        console.log(payload_data)
+        console.log(payload_data);
         const data = JSON.parse(payload_data);
         console.log(data);
       } catch (e) {
