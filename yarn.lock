@@ -1337,7 +1337,7 @@ graceful-fs@^4.1.6, graceful-fs@^4.2.0:
 
 "graphai@https://github.com/receptron/graphai.git":
   version "0.3.1"
-  resolved "https://github.com/receptron/graphai.git#fc6a2eb2da3832fecb666822211caa1ab59a1564"
+  resolved "https://github.com/receptron/graphai.git#6f56b94773b4f603d527879238bf6afa685267d9"
 
 graphemer@^1.4.0:
   version "1.4.0"

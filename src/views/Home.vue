@@ -52,6 +52,7 @@ const useAgentFilter = (callback: (context: AgentFunctionContext, data: T) => vo
 };
 
 const graph_data = {
+  version: 0.3,
   loop: {
     while: ":people",
   },
