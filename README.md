@@ -17,7 +17,7 @@ Testing streaming of llm/slashgpt/graphai
 
 ## Usage
 
-
+### run server
 Before run, set openai key
 
 server/.env
@@ -32,9 +32,9 @@ cd server
 yarn run server
 ```
 
-
-## test
+### run web
 
 ```
-curl -X POST  http://localhost:8085/api/stream_chat
+yarn install
+yarn run serve
 ```
