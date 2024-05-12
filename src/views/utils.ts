@@ -1,6 +1,11 @@
-export async function* streamChatCompletion(url: string, postData: Record<string, unknown>) {
+import { AgentFunctionContext } from "graphai/lib/type";
+
+export async function* streamChatCompletion(url: string, postData: AgentFunctionContext) {
   const { params, inputs, debugInfo, filterParams } = postData;
   const postBody = { params, inputs, debugInfo, filterParams };
+  // force streaming
+  params.isStreaming = true;
+
   const completion = await fetch(url, {
     headers: {
       "Content-Type": "application/json",

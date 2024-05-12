@@ -4,17 +4,19 @@ import { streamChatCompletion } from "./utils";
 export const httpAgentFilter: AgentFilterFunction = async (context, next) => {
   if (context?.filterParams?.server) {
     const { baseUrl } = context.filterParams.server;
-    const { params, inputs } = context;
+    const { params, inputs, debugInfo, filterParams } = context;
     const agentId = context.debugInfo.agentId;
     const url = baseUrl + agentId;
 
     const generator = streamChatCompletion(url, {
       params,
       inputs,
+      debugInfo,
+      filterParams,
     });
     const messages = [];
     for await (const token of generator) {
-      console.log(token)
+      console.log(token);
       // callback to stream filter
       if (token) {
         messages.push(token);

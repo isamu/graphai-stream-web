@@ -1,5 +1,6 @@
 import express from "express";
-import { defaultTestAgents } from "graphai/lib/utils/test_agents";
+// import { defaultTestAgents } from "graphai/lib/utils/test_agents";
+import * as agents from "graphai/lib/experimental_agents";
 
 import { streamAgentFilterGenerator } from "graphai/lib/experimental_agent_filters/stream";
 import { slashGPTAgent } from "graphai/lib/experimental_agents/llm_agents/slashgpt_agent";
@@ -11,8 +12,9 @@ export const agentDispatcher = async (req: express.Request, res: express.Respons
   const { params } = req;
   const { agentId } = params; // from url
   const { nodeId, retry, params: agentParams, inputs } = req.body; // post body
-  const agents = {...defaultTestAgents, ...{ slashGPTAgent } as AgentFunctionDictonary}; 
-  const agent = agents[agentId];
+  // const agents = {...defaultTestAgents, ...{ slashGPTAgent } as AgentFunctionDictonary}; 
+
+  const agent = (agents as any)[agentId];
   const isStreaming  = agentParams?.isStreaming || false;
   console.log(req.body, isStreaming);
   if (agent === undefined) {

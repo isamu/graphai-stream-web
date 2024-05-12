@@ -1373,7 +1373,7 @@ gopd@^1.0.1:
 
 "graphai@https://github.com/receptron/graphai.git":
   version "0.3.1"
-  resolved "https://github.com/receptron/graphai.git#12f2dbc3c95558c2295b0dda841967d90185cf8e"
+  resolved "https://github.com/receptron/graphai.git#ca282bfe91f7d21dbdb86b46a359df4069d23e45"
 
 graphemer@^1.4.0:
   version "1.4.0"
