@@ -70,4 +70,22 @@ const graph_data3 = {
   },
 };
 
-export const graphDataSet = [graph_data1, graph_data2, graph_data3];
+const graph_data4 = {
+  version: 0.3,
+  nodes: {
+    input: {
+      value: "Steve Wozniak"
+    },
+    wikipedia: {
+      inputs: [":input"],
+      agent: "wikipediaAgent",
+      isResult: true,
+      params: {
+        lang: "ja",
+      },
+    },
+  },
+};
+
+
+export const graphDataSet = [graph_data1, graph_data2, graph_data3, graph_data4];
