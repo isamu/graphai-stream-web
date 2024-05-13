@@ -88,7 +88,6 @@ const parseInput = (input: string) => {
 };
 
 const cytoscapeFromGraph = (graph_data: GraphData) => {
-  console.log("AA");
   const elements = Object.keys(graph_data.nodes).reduce(
     (tmp: { nodes: NodeDefinition[]; edges: EdgeDefinition[]; map: Record<string, NodeDefinition> }, nodeId) => {
       const node: NodeData = graph_data.nodes[nodeId];
@@ -141,7 +140,7 @@ export const useCytoscope = (selectedGraph: ComputedRef<GraphData> | Ref<GraphDa
   const cytoscopeRef = ref();
 
   const updateCytoscope = async (nodeId: string, state: NodeState) => {
-    if (state === NodeState.Completed) {
+    if (state === NodeState.Completed || state === NodeState.Waiting) {
       await sleep(100);
     }
     const elements = cytoscopeData.value.elements;
@@ -157,7 +156,6 @@ export const useCytoscope = (selectedGraph: ComputedRef<GraphData> | Ref<GraphDa
         elements.map[nodeId].data.color = colorStatic;
       }
     }
-
     cytoscopeData.value = { elements };
     if (state === NodeState.Injected) {
       await sleep(100);
