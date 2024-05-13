@@ -1,6 +1,38 @@
 import { AgentFilterFunction, AgentFunctionContext } from "graphai/lib/type";
 import { streamChatCompletion } from "./utils";
 
+async function* streamChatCompletion(url: string, postData: AgentFunctionContext) {
+  const { params, inputs, debugInfo, filterParams } = postData;
+  const postBody = { params, inputs, debugInfo, filterParams };
+
+  const completion = await fetch(url, {
+    headers: {
+      "Content-Type": "text/event-stream",
+    },
+    method: "POST",
+    body: JSON.stringify(postBody),
+  });
+
+  const reader = completion.body?.getReader();
+
+  if (completion.status !== 200 || !reader) {
+    throw new Error("Request failed");
+  }
+
+  const decoder = new TextDecoder("utf-8");
+  let done = false;
+  while (!done) {
+    const { done: readDone, value } = await reader.read();
+    if (readDone) {
+      done = readDone;
+      reader.releaseLock();
+    } else {
+      const token = decoder.decode(value, { stream: true });
+      yield token;
+    }
+  }
+}
+
 const streamingRequest = async (context: AgentFunctionContext, url: string, postData: AgentFunctionContext) => {
   const generator = streamChatCompletion(url, postData);
 
@@ -15,7 +47,7 @@ const streamingRequest = async (context: AgentFunctionContext, url: string, post
       }
     }
   }
-  
+
   const payload_data = messages.join("").split("___END___")[1];
   const data = JSON.parse(payload_data);
   return data;

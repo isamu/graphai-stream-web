@@ -2,12 +2,20 @@
   <div class="home">
     <div class="items-center justify-center">
       <div>
+        <select v-model="selectedGraphIndex" class="border rounded-md p-2 m-2">
+          <option v-for="(option, index) in graphDataSet" :value="index" :key="index">
+            {{ option.name }}
+          </option>
+        </select>
+      </div>
+
+
+      <div>
         <button class="text-white font-bold items-center rounded-full px-4 py-2 m-1 bg-sky-500 hover:bg-sky-700" @click="agentServer">AgentServer</button>
       </div>
-      {{ messages.join("").split("___END___")[0] }}
       <div>
         Streaming<br />
-        {{ graphData }}
+        {{ streamingData }}
       </div>
       <div>
         Result<br />
@@ -18,7 +26,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, computed } from "vue";
 import { AgentFunctionContext } from "graphai/lib/type";
 
 import { GraphAI } from "graphai";
@@ -66,40 +74,43 @@ export default defineComponent({
   name: "HomePage",
   components: {},
   setup() {
-    const graphData = ref<Record<string, unknown>>({});
+    const selectedGraphIndex = ref(0);
+    const selectedGraph = computed(() => {
+      return graphDataSet[selectedGraphIndex.value].data;
+    });
+
+    const streamingData = ref<Record<string, unknown>>({});
     const result = ref<unknown>({});
 
     const callback = (context: AgentFunctionContext, data: string) => {
       const { nodeId } = context.debugInfo;
-      graphData.value[nodeId] = (graphData.value[nodeId] ?? "") + data;
-      // console.log(data);
+      streamingData.value[nodeId] = (streamingData.value[nodeId] ?? "") + data;
     };
     const agentFilters = useAgentFilter(callback);
-    // console.log(agents);
 
     const runGraph = async () => {
-      const graphai = new GraphAI(graphDataSet[0], { ...agents, ...serverAgents, sleeperAgent }, { agentFilters });
+      result.value = {};
+      streamingData.value = {};
+
+      const graphai = new GraphAI(selectedGraph.value, { ...agents, ...serverAgents, sleeperAgent }, { agentFilters });
       graphai.onLogCallback = (log) => {
         console.log(log);
       };
-      // result.value = await graphai.run();
       result.value = await graphai.run();
     };
 
-    const messages = ref([]);
     const agentServer = async () => {
       runGraph();
     };
     return {
-      messages,
-      // run,
-      // chat,
-      // slash,
       agentServer,
       runGraph,
 
-      graphData,
+      streamingData,
       result,
+
+      graphDataSet,
+      selectedGraphIndex,
     };
   },
 });
