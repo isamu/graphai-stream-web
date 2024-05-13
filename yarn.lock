@@ -361,7 +361,14 @@
   resolved "https://registry.yarnpkg.com/@rollup/rollup-win32-x64-msvc/-/rollup-win32-x64-msvc-4.9.1.tgz#d146db7a5949e10837b323ce933ed882ac878262"
   integrity sha512-PyJsSsafjmIhVgaI1Zdj7m8BB8mMckFah/xbpplObyHfiXzKcI5UOUXRyOdHW7nz4DpMCuzLnF7v5IWHenCwYA==
 
-"@types/cytoscape@^3.21.0":
+"@types/cytoscape-klay@^3.1.4":
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/@types/cytoscape-klay/-/cytoscape-klay-3.1.4.tgz#809fe7ee75642132be3df53f22a9cbd1fcbf9225"
+  integrity sha512-H+tIadpcVjmDGWKFUfibwzIpH/kddfwAFsuhPparjiC+bWBm+MeNqIwwY+19ofkJZWcqWqZL6Jp8lkp+sP8Aig==
+  dependencies:
+    "@types/cytoscape" "*"
+
+"@types/cytoscape@*", "@types/cytoscape@^3.21.0":
   version "3.21.0"
   resolved "https://registry.yarnpkg.com/@types/cytoscape/-/cytoscape-3.21.0.tgz#30f5634774862b9a507b89a1b10616efabf1bf88"
   integrity sha512-RN5SPiyVDpUP+LoOlxxlOYAMzkE7iuv3gA1jt3Hx2qTwArpZVPPdO+SI0hUj49OAn4QABR7JK9Gi0hibzGE0Aw==
