@@ -108,8 +108,8 @@ export default defineComponent({
       streamingData.value = {};
       const graphai = new GraphAI(selectedGraph.value, { ...agents, ...serverAgents, sleeperAgent }, { agentFilters });
       graphai.onLogCallback = (log) => {
-        console.log(log);
-        updateCytoscope(log.nodeId, log.state);
+        const isServer = serverAgentIds.includes(log.agentId);
+        updateCytoscope(log.nodeId, log.state === "executing" && isServer ? "executing-server" : log.state);
       };
       result.value = await graphai.run();
     };

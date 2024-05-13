@@ -72,6 +72,7 @@ const colorMap = {
   [NodeState.Waiting]: "#888",
   [NodeState.Completed]: "#000",
   [NodeState.Executing]: "#0f0",
+  ["executing-server"]: "#FFC0CB",
   [NodeState.Queued]: "#ff0",
   [NodeState.Injected]: "#00f",
   [NodeState.TimedOut]: "#f0f",
