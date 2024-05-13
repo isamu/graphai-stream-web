@@ -1,24 +1,36 @@
 <template>
   <div class="home">
-    <div class="items-center justify-center">
+    <div>
       <div>
-        <select v-model="selectedGraphIndex" class="border rounded-md p-2 m-2">
-          <option v-for="(option, index) in graphDataSet" :value="index" :key="index">
-            {{ option.name }}
-          </option>
-        </select>
+        <div class="w-10/12 h-96 bg-white rounded-md mt-4 mx-auto border-2">
+          <div ref="cytoscopeRef" class="w-full h-full" />
+        </div>
       </div>
+      <div class="flex">
+        <div class="w-1/8 items-center justify-center">
+          <div>
+            <select v-model="selectedGraphIndex" class="border rounded-md p-2 m-2">
+              <option v-for="(option, index) in graphDataSet" :value="index" :key="index">
+                {{ option.name }}
+              </option>
+            </select>
+          </div>
 
-      <div>
-        <button class="text-white font-bold items-center rounded-full px-4 py-2 m-1 bg-sky-500 hover:bg-sky-700" @click="agentServer">AgentServer</button>
-      </div>
-      <div>
-        Streaming<br />
-        {{ streamingData }}
-      </div>
-      <div>
-        Result<br />
-        {{ result }}
+          <div>
+            <button class="text-white font-bold items-center rounded-full px-4 py-2 m-1 bg-sky-500 hover:bg-sky-700" @click="agentServer">AgentServer</button>
+          </div>
+        </div>
+
+        <div class="w-7/8 text-left">
+          <div class="w-full break-words whitespace-pre-wrap">
+            Streaming<br />
+            {{ JSON.stringify(streamingData, null, 2) }}
+          </div>
+          <div>
+            Result<br />
+            {{ JSON.stringify(result, null, 2) }}
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -35,6 +47,8 @@ import { sleeperAgent } from "graphai/lib/experimental_agents/sleeper_agents";
 import { graphDataSet } from "@/utils/graph_data";
 
 import { streamAgentFilterBuilder, httpAgentFilter } from "@/utils/agentFilter";
+
+import { useCytoscope } from "@/composables/cytoscope";
 
 const serverAgentIds = ["groqAgent", "slashGPTAgent", "groqStreamAgent", "openAIAgent", "fetchAgent", "wikipediaAgent"];
 const streamAgents = ["groqAgent", "slashGPTAgent", "groqStreamAgent", "openAIAgent", "streamMockAgent"];
@@ -87,13 +101,15 @@ export default defineComponent({
     };
     const agentFilters = useAgentFilter(callback);
 
+    const { updateCytoscope, cytoscopeRef } = useCytoscope(selectedGraph);
+
     const runGraph = async () => {
       result.value = {};
       streamingData.value = {};
-
       const graphai = new GraphAI(selectedGraph.value, { ...agents, ...serverAgents, sleeperAgent }, { agentFilters });
       graphai.onLogCallback = (log) => {
         console.log(log);
+        updateCytoscope(log.nodeId, log.state);
       };
       result.value = await graphai.run();
     };
@@ -110,6 +126,8 @@ export default defineComponent({
 
       graphDataSet,
       selectedGraphIndex,
+
+      cytoscopeRef,
     };
   },
 });

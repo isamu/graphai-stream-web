@@ -9,8 +9,11 @@
     "format": "prettier --write '{src/**/*,*}.{js,ts,vue,json}'"
   },
   "dependencies": {
+    "@types/cytoscape": "^3.21.0",
     "@vueuse/head": "^1.0.16",
     "core-js": "^3.25.2",
+    "cytoscape": "^3.29.2",
+    "cytoscape-klay": "^3.1.4",
     "deepmerge": "^4.3.1",
     "graphai": "https://github.com/receptron/graphai.git",
     "pinia": "^2.1.7",

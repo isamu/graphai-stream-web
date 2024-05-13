@@ -1,5 +1,4 @@
 import { AgentFilterFunction, AgentFunctionContext } from "graphai/lib/type";
-import { streamChatCompletion } from "./utils";
 
 async function* streamChatCompletion(url: string, postData: AgentFunctionContext) {
   const { params, inputs, debugInfo, filterParams } = postData;
