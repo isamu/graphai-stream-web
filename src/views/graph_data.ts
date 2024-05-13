@@ -91,13 +91,17 @@ export const graphDataSet = [
   {
     data: graph_data1,
     name: "slashgpt",
-  }, {
+  },
+  {
     data: graph_data2,
     name: "stream mock",
-  }, {
+  },
+  {
     data: graph_data3,
     name: "openai",
-  }, {
+  },
+  {
     data: graph_data4,
     name: "wikipedia",
-  }];
+  },
+];
