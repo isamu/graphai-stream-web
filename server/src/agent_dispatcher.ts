@@ -13,9 +13,9 @@ export const agentDispatcher = async (req: express.Request, res: express.Respons
   const { agentId } = params; // from url
   const { nodeId, retry, params: agentParams, inputs } = req.body; // post body
   // const agents = {...defaultTestAgents, ...{ slashGPTAgent } as AgentFunctionDictonary}; 
-
+  const isStreaming = (req.headers['content-type'] || "").startsWith("text/event-stream");
+  
   const agent = (agents as any)[agentId];
-  const isStreaming  = agentParams?.isStreaming || false;
   console.log(req.body, isStreaming);
   if (agent === undefined) {
     return res.status(404).send({ message: "Agent not found" });

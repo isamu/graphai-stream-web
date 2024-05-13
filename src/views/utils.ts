@@ -2,14 +2,11 @@ import { AgentFunctionContext } from "graphai/lib/type";
 
 export async function* streamChatCompletion(url: string, postData: AgentFunctionContext) {
   const { params, inputs, debugInfo, filterParams } = postData;
-  // force streaming
-  params.isStreaming = true;
-
   const postBody = { params, inputs, debugInfo, filterParams };
 
   const completion = await fetch(url, {
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": "text/event-stream",
     },
     method: "POST",
     body: JSON.stringify(postBody),
