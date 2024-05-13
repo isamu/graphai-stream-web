@@ -32,9 +32,9 @@ import { GraphAI } from "graphai";
 import * as agents from "graphai/lib/vanilla_agents";
 import { sleeperAgent } from "graphai/lib/experimental_agents/sleeper_agents";
 
-import { graphDataSet } from "./graph_data";
+import { graphDataSet } from "@/utils/graph_data";
 
-import { streamAgentFilterBuilder, httpAgentFilter } from "./agentFilter";
+import { streamAgentFilterBuilder, httpAgentFilter } from "@/utils/agentFilter";
 
 const serverAgentIds = ["groqAgent", "slashGPTAgent", "groqStreamAgent", "openAIAgent", "fetchAgent", "wikipediaAgent"];
 const streamAgents = ["groqAgent", "slashGPTAgent", "groqStreamAgent", "openAIAgent", "streamMockAgent"];
