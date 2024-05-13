@@ -74,7 +74,7 @@ const graph_data4 = {
   version: 0.3,
   nodes: {
     input: {
-      value: "Steve Wozniak"
+      value: "Steve Wozniak",
     },
     wikipedia: {
       inputs: [":input"],
@@ -86,6 +86,5 @@ const graph_data4 = {
     },
   },
 };
-
 
 export const graphDataSet = [graph_data1, graph_data2, graph_data3, graph_data4];

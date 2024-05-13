@@ -30,6 +30,8 @@ import { graphDataSet } from "./graph_data";
 import { streamAgentFilterBuilder, httpAgentFilter } from "./agentFilter";
 
 const serverAgentIds = ["groqAgent", "slashGPTAgent", "groqStreamAgent", "openAIAgent", "fetchAgent", "wikipediaAgent"];
+const streamAgents = ["groqAgent", "slashGPTAgent", "groqStreamAgent", "openAIAgent"];
+
 const useAgentFilter = (callback: (context: AgentFunctionContext, data: T) => void) => {
   const streamAgentFilter = streamAgentFilterBuilder(callback);
 
@@ -37,6 +39,7 @@ const useAgentFilter = (callback: (context: AgentFunctionContext, data: T) => vo
     {
       name: "streamAgentFilter",
       agent: streamAgentFilter,
+      agentIds: streamAgents,
     },
     {
       name: "httpAgentFilter",
@@ -74,9 +77,8 @@ export default defineComponent({
     const agentFilters = useAgentFilter(callback);
     console.log(agents);
 
-
     const runGraph = async () => {
-      const graphai = new GraphAI(graphDataSet[3], { ...agents, ...serverAgents, sleeperAgent }, { agentFilters });
+      const graphai = new GraphAI(graphDataSet[2], { ...agents, ...serverAgents, sleeperAgent }, { agentFilters });
       graphai.onLogCallback = (log) => {
         console.log(log);
       };
