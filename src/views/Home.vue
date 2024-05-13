@@ -72,13 +72,13 @@ export default defineComponent({
     const callback = (context: AgentFunctionContext, data: string) => {
       const { nodeId } = context.debugInfo;
       graphData.value[nodeId] = (graphData.value[nodeId] ?? "") + data;
-      console.log(data);
+      // console.log(data);
     };
     const agentFilters = useAgentFilter(callback);
-    console.log(agents);
+    // console.log(agents);
 
     const runGraph = async () => {
-      const graphai = new GraphAI(graphDataSet[2], { ...agents, ...serverAgents, sleeperAgent }, { agentFilters });
+      const graphai = new GraphAI(graphDataSet[3], { ...agents, ...serverAgents, sleeperAgent }, { agentFilters });
       graphai.onLogCallback = (log) => {
         console.log(log);
       };

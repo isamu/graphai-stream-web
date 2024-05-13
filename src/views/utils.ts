@@ -1,9 +1,9 @@
 import { AgentFunctionContext } from "graphai/lib/type";
 
-export async function* streamChatCompletion(url: string, postData: AgentFunctionContext, isStreaming: boolean) {
+export async function* streamChatCompletion(url: string, postData: AgentFunctionContext) {
   const { params, inputs, debugInfo, filterParams } = postData;
   // force streaming
-  params.isStreaming = isStreaming;
+  params.isStreaming = true;
 
   const postBody = { params, inputs, debugInfo, filterParams };
 
