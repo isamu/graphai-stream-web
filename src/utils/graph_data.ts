@@ -41,7 +41,6 @@ const graph_data2 = {
   version: 0.3,
   nodes: {
     query: {
-      inputs: [{}],
       agent: "streamMockAgent",
       params: {
         isStreaming: true,

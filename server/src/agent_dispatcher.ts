@@ -31,7 +31,7 @@ export const agentDispatcher = async (req: express.Request, res: express.Respons
     agents: agents,
   };
   if (!isStreaming) {
-    const result = await agent(context);
+    const result = await agent.agent(context);
     return res.json(result);
   }
 
