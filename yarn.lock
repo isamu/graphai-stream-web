@@ -1359,9 +1359,10 @@ graceful-fs@^4.1.6, graceful-fs@^4.2.0:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.11.tgz#4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
 
-"graphai@https://github.com/receptron/graphai.git":
-  version "0.3.1"
-  resolved "https://github.com/receptron/graphai.git#7185e030dc746c6af6010c5d1785fd7bf1a7d7ff"
+graphai@0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/graphai/-/graphai-0.4.0.tgz#0062b9fde7f9bd6e9601da37ae5df9f9461106da"
+  integrity sha512-7qREYXuFEPPznBPeGEnZfIaXAsee8ZyzUYE78wpTa5qDzfWaF5egOEgl6lafpsXJ9PQBTPkbiw0L0HyZnrVjcA==
 
 graphemer@^1.4.0:
   version "1.4.0"
