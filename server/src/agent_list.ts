@@ -1,7 +1,7 @@
 import express from "express";
 import { AgentFunctionInfo } from "graphai/lib/type";
 
-import * as packages from "graphai/lib/experimental_agents/packages";
+import * as packages from "graphai/lib/experimental_agents";
 
 const packages2data = (packages: Record<string, AgentFunctionInfo>) => {
   return Object.keys(packages).reduce((tmp: Record<string, {

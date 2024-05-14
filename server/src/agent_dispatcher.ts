@@ -5,7 +5,7 @@ import { streamAgentFilterGenerator } from "graphai/lib/experimental_agent_filte
 import { slashGPTAgent } from "graphai/lib/experimental_agents/llm_agents/slashgpt_agent";
 import { agentFilterRunnerBuilder } from "graphai/lib/utils/test_utils";
 
-import { AgentFunctionContext, AgentFunctionDictonary } from "graphai/lib/type";
+import { AgentFunctionContext } from "graphai/lib/type";
 
 export const agentDispatcher = async (req: express.Request, res: express.Response) => {
   const { params } = req;
@@ -53,7 +53,7 @@ export const agentDispatcher = async (req: express.Request, res: express.Respons
   ];
 
   const agentFilterRunner = agentFilterRunnerBuilder(agentFilters);
-  const result = await agentFilterRunner(context, agent);
+  const result = await agentFilterRunner(context, agent.agent);
 
   // end of stream
   const json_data = JSON.stringify(result);
