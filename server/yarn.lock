@@ -1371,10 +1371,10 @@ gopd@^1.0.1:
   dependencies:
     get-intrinsic "^1.1.3"
 
-graphai@0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/graphai/-/graphai-0.4.0.tgz#0062b9fde7f9bd6e9601da37ae5df9f9461106da"
-  integrity sha512-7qREYXuFEPPznBPeGEnZfIaXAsee8ZyzUYE78wpTa5qDzfWaF5egOEgl6lafpsXJ9PQBTPkbiw0L0HyZnrVjcA==
+graphai@0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/graphai/-/graphai-0.4.1.tgz#cd350cd5704a4a734890027a745fd4a55315dd93"
+  integrity sha512-0AuX0kBuG8uZuGOdEHK0tt78UHi6EUZrUTcNRfBGI3h+B1NqxbFa0x2RHiJ1juFHD7DTDqAfa7/K/pKBMh7xkQ==
 
 graphemer@^1.4.0:
   version "1.4.0"

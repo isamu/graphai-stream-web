@@ -5,7 +5,7 @@ import { streamAgentFilterGenerator } from "graphai/lib/experimental_agent_filte
 import { slashGPTAgent } from "graphai/lib/experimental_agents/llm_agents/slashgpt_agent";
 import { agentFilterRunnerBuilder } from "graphai/lib/utils/test_utils";
 
-import { AgentFunctionContext } from "graphai/lib/type";
+import { AgentFunctionContext, AgentFunctionInfoDictonary } from "graphai/lib/type";
 
 export const agentDispatcher = async (req: express.Request, res: express.Response) => {
   const { params } = req;
@@ -13,7 +13,7 @@ export const agentDispatcher = async (req: express.Request, res: express.Respons
   const { nodeId, retry, params: agentParams, inputs } = req.body; // post body
   const isStreaming = (req.headers['content-type'] || "").startsWith("text/event-stream");
   
-  const agent = (agents as any)[agentId];
+  const agent = (agents as AgentFunctionInfoDictonary)[agentId];
   console.log(req.body, isStreaming);
   if (agent === undefined) {
     return res.status(404).send({ message: "Agent not found" });
