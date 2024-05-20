@@ -1,5 +1,5 @@
 {
-  "name": "firebase-vue3-startup-kit",
+  "name": "graphai-stream-web",
   "version": "1.0.7",
   "license": "MIT",
   "scripts": {
@@ -15,7 +15,7 @@
     "cytoscape": "^3.29.2",
     "cytoscape-klay": "^3.1.4",
     "deepmerge": "^4.3.1",
-    "graphai": "0.4.0",
+    "graphai": "0.4.2",
     "pinia": "^2.1.7",
     "vue": "^3.4.4",
     "vue-i18n": "^9.8.0",
