@@ -21,7 +21,7 @@ export const slashGPTStream = async (req: express.Request, res: express.Response
 
   const callback = (token: string) => {
     if (token) {
-      res.write(token)
+      res.write(token);
     }
   };
 
@@ -31,7 +31,6 @@ export const slashGPTStream = async (req: express.Request, res: express.Response
     const json_data = JSON.stringify(response);
     res.write(json_data);
     return res.end();
-
   } catch (e) {
     console.log(e);
     return res.status(500).send({ message: "Internal server error" });

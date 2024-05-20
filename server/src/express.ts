@@ -17,11 +17,13 @@ const options: cors.CorsOptions = {
 };
 
 // this option is for parse json body with text/event-stream
-app.use(express.json({
-  type(req) {
-    return true;
-  }
-}));
+app.use(
+  express.json({
+    type(req) {
+      return true;
+    },
+  }),
+);
 app.use(cors(options));
 
 app.post("/api/stream_chat", chatStream);

@@ -12,16 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@receptron/graphai_express": "^0.0.5",
     "cors": "^2.8.5",
-    "deepmerge": "^4.3.1",
     "express": "^4.19.2",
-    "graphai": "0.4.1",
-    "groq-sdk": "^0.3.3",
-    "openai": "^4.40.2",
-    "slashgpt": "https://github.com/receptron/slashgpt-js.git#streaming",
-    "tiktoken": "^1.0.14",
-    "wikipedia": "^2.1.2",
-    "xml2js": "^0.6.2"
+    "slashgpt": "^0.1.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

@@ -3,22 +3,24 @@ import * as agents from "graphai/lib/experimental_agents";
 
 import { streamAgentFilterGenerator } from "graphai/lib/experimental_agent_filters/stream";
 import { slashGPTAgent } from "graphai/lib/experimental_agents/llm_agents/slashgpt_agent";
-import { agentFilterRunnerBuilder } from "graphai/lib/utils/test_utils";
+import { agentFilterRunnerBuilder } from "graphai";
 
-import { AgentFunctionContext, AgentFunctionInfoDictonary } from "graphai/lib/type";
+import { AgentFunctionContext, AgentFunctionInfoDictionary } from "graphai";
+
+const agentDictionary: AgentFunctionInfoDictionary = agents;
 
 export const agentDispatcher = async (req: express.Request, res: express.Response) => {
   const { params } = req;
   const { agentId } = params; // from url
   const { nodeId, retry, params: agentParams, inputs } = req.body; // post body
-  const isStreaming = (req.headers['content-type'] || "").startsWith("text/event-stream");
-  
-  const agent = (agents as AgentFunctionInfoDictonary)[agentId];
+  const isStreaming = (req.headers["content-type"] || "").startsWith("text/event-stream");
+
+  const agent = agentDictionary[agentId];
   console.log(req.body, isStreaming);
   if (agent === undefined) {
     return res.status(404).send({ message: "Agent not found" });
   }
-  
+
   const context = {
     params: agentParams || {},
     inputs,
@@ -41,7 +43,7 @@ export const agentDispatcher = async (req: express.Request, res: express.Respons
 
   const callback = (context: AgentFunctionContext, token: string) => {
     if (token) {
-      res.write(token)
+      res.write(token);
     }
   };
 
@@ -60,5 +62,4 @@ export const agentDispatcher = async (req: express.Request, res: express.Respons
   res.write("___END___");
   res.write(json_data);
   return res.end();
-  
 };
