@@ -21,6 +21,7 @@ const graph_data1 = {
       agent: "slashGPTAgent",
       params: {
         manifest: {
+          model: "gpt-3.5-turbo",
           prompt: "Describe about the person in less than 100 words",
         },
       },
@@ -50,7 +51,7 @@ const graph_data2 = {
     },
     answer: {
       agent: "sleeperAgent",
-      inputs: ["query.choices.$0.message"],
+      inputs: [":query.choices.$0.message"],
     },
   },
 };
@@ -63,6 +64,9 @@ const graph_data3 = {
     },
     node2: {
       agent: "openAIAgent",
+      params: {
+        stream: true
+      },
       inputs: [":node1"],
       isResult: true,
     },
