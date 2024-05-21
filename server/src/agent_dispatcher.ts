@@ -2,7 +2,6 @@ import express from "express";
 import * as agents from "graphai/lib/experimental_agents";
 
 import { streamAgentFilterGenerator } from "graphai/lib/experimental_agent_filters/stream";
-import { slashGPTAgent } from "graphai/lib/experimental_agents/llm_agents/slashgpt_agent";
 import { agentFilterRunnerBuilder } from "graphai";
 
 import { AgentFunctionContext, AgentFunctionInfoDictionary } from "graphai";

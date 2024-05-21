@@ -3,10 +3,7 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 
-import { chatStream } from "./streaming";
-import { slashGPTStream } from "./slashgpt";
-import { agentDispatcher } from "./agent_dispatcher";
-import { agentList } from "./agent_list";
+import { streamAgentDispatcher, agentDispatcher, agentsList, agentDoc } from "@receptron/graphai_express";
 
 export const app = express();
 
@@ -26,11 +23,12 @@ app.use(
 );
 app.use(cors(options));
 
-app.post("/api/stream_chat", chatStream);
-app.post("/api/stream_slash", slashGPTStream);
 
-app.post("/agents/:agentId", agentDispatcher);
-app.get("/agents/list", agentList);
+app.post("/agents/stream/:agentId", streamAgentDispatcher());
+app.post("/agents/:agentId", agentDispatcher());
+
+app.get("/agents/list", agentsList("http://localhost:8085", "/agents"));
+app.get("/agents/:agentId", agentDoc("http://localhost:8085", "/agents"));
 
 const port = 8085;
 app.listen(port, () => {
