@@ -247,10 +247,10 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@receptron/graphai_express@^0.0.7":
-  version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@receptron/graphai_express/-/graphai_express-0.0.7.tgz#a3611b3759eec41bfe70cab6f2431839a641481a"
-  integrity sha512-i7KFKjUcjvJXCYOBpsZcEUP0pOMAqYDIP/jsFjwQYS/Xs3QSDzdAgOfz1AhAGktB/9p8oHIneRf9JPSPUqMnuA==
+"@receptron/graphai_express@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@receptron/graphai_express/-/graphai_express-0.0.8.tgz#77fab5e606a4440c1c174da9fa1376094751d118"
+  integrity sha512-92od6HGWa3J+8t2bW+vxeTMmXQ4y47eqCsKT+gbsJCfNFlXfEggJ6V+HrzB5Qo8XeZuZyLa15C6XvxySWRy7qQ==
   dependencies:
     "@inquirer/prompts" "^5.0.0"
     arxiv-api-ts "^1.0.3"

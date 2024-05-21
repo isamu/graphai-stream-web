@@ -4,7 +4,7 @@ import express from "express";
 import cors from "cors";
 import * as agents from "graphai/lib/experimental_agents";
 
-import { streamAgentDispatcher, agentDispatcher, agentsList, agentDoc } from "@receptron/graphai_express";
+import { agentDispatcher, agentsList, agentDoc } from "@receptron/graphai_express";
 import { AgentFunctionInfoDictionary } from "graphai";
 
 export const app = express();
@@ -26,11 +26,10 @@ app.use(
 );
 app.use(cors(options));
 
-app.post("/agents/stream/:agentId", streamAgentDispatcher(agentDictionary));
-app.post("/agents/:agentId", agentDispatcher(agentDictionary));
 
 app.get("/agents/list", agentsList(agentDictionary, "http://localhost:8085", "/agents"));
 app.get("/agents/:agentId", agentDoc(agentDictionary, "http://localhost:8085", "/agents"));
+app.post("/agents/:agentId", agentDispatcher(agentDictionary));
 
 const port = 8085;
 app.listen(port, () => {
