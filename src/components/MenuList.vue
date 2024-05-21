@@ -1,6 +1,7 @@
 <template>
   <div class="flex flex-col space-y-1 bg-white p-4">
     <MenuItem @click="handleClose" link="/" icon="man" title="menu.top" />
+    <MenuItem @click="handleClose" link="/list" icon="list" title="menu.list" />
   </div>
 </template>
 

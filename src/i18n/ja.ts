@@ -6,6 +6,7 @@ const lang = {
   },
   menu: {
     top: "Home",
+    list: "Agents",
     mypage: "マイページ",
     signin: "ログイン",
     signout: "ログアウト",

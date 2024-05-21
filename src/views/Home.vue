@@ -41,6 +41,7 @@ import { defineComponent, ref, computed } from "vue";
 import { AgentFunctionContext } from "graphai/lib/type";
 
 import { GraphAI } from "graphai";
+
 import * as agents from "graphai/lib/vanilla_agents";
 import { sleeperAgent } from "graphai/lib/experimental_agents/sleeper_agents";
 
@@ -67,7 +68,7 @@ const useAgentFilter = (callback: (context: AgentFunctionContext, data: T) => vo
       agent: httpAgentFilter,
       filterParams: {
         server: {
-          baseUrl: "http://localhost:8085/agents/",
+          baseUrl: "http://localhost:8085/agents",
           stream: true,
         },
       },
