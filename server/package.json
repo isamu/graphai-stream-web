@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@receptron/graphai_express": "^0.0.5",
+    "@receptron/graphai_express": "^0.0.7",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "slashgpt": "^0.1.1"

@@ -2,11 +2,14 @@ import "dotenv/config";
 
 import express from "express";
 import cors from "cors";
+import * as agents from "graphai/lib/experimental_agents";
 
 import { streamAgentDispatcher, agentDispatcher, agentsList, agentDoc } from "@receptron/graphai_express";
+import { AgentFunctionInfoDictionary } from "graphai";
 
 export const app = express();
 
+const agentDictionary: AgentFunctionInfoDictionary = agents;
 const allowedOrigins = ["http://localhost:8080"];
 
 const options: cors.CorsOptions = {
@@ -23,12 +26,11 @@ app.use(
 );
 app.use(cors(options));
 
+app.post("/agents/stream/:agentId", streamAgentDispatcher(agentDictionary));
+app.post("/agents/:agentId", agentDispatcher(agentDictionary));
 
-app.post("/agents/stream/:agentId", streamAgentDispatcher());
-app.post("/agents/:agentId", agentDispatcher());
-
-app.get("/agents/list", agentsList("http://localhost:8085", "/agents"));
-app.get("/agents/:agentId", agentDoc("http://localhost:8085", "/agents"));
+app.get("/agents/list", agentsList(agentDictionary, "http://localhost:8085", "/agents"));
+app.get("/agents/:agentId", agentDoc(agentDictionary, "http://localhost:8085", "/agents"));
 
 const port = 8085;
 app.listen(port, () => {
