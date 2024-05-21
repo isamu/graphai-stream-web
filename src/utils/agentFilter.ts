@@ -69,7 +69,7 @@ export const httpAgentFilter: AgentFilterFunction = async (context, next) => {
     const { baseUrl } = filterParams.server;
     const agentId = debugInfo.agentId;
     const isStreaming = filterParams.streamTokenCallback !== undefined;
-    const url = [baseUrl, agentId].join("/"); 
+    const url = [baseUrl, agentId].join("/");
 
     const postData = {
       params,

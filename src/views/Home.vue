@@ -82,7 +82,7 @@ const useAgentFilter = (callback: (context: AgentFunctionContext, data: T) => vo
 const serverAgents = serverAgentIds.reduce((tmp, agentId) => {
   tmp[agentId] = {
     agent: () => {},
-  }
+  };
   return tmp;
 }, {});
 
