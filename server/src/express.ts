@@ -2,7 +2,7 @@ import "dotenv/config";
 
 import express from "express";
 import cors from "cors";
-import * as agents from "graphai/lib/experimental_agents";
+import * as agents from "@graphai/agents";
 
 import { agentDispatcher, agentsList, agentDoc } from "@receptron/graphai_express";
 import { AgentFunctionInfoDictionary } from "graphai";
