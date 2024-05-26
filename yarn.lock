@@ -182,6 +182,11 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
+"@graphai/agent_filters@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@graphai/agent_filters/-/agent_filters-0.0.1.tgz#a3e602753719930e47889b5be524c146e3060020"
+  integrity sha512-4Wt9Wzgibi1LyVKEO2VAWeIjks/MCAnASaNiL0oKRPDYRVJ1l/RU/xn1+H7CDNJGNVzytWOYpw7FazmdR1mZUA==
+
 "@graphai/sleeper_agents@^0.0.1":
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/@graphai/sleeper_agents/-/sleeper_agents-0.0.1.tgz#59de8b396127ca118147cead740442e6f7141f4d"

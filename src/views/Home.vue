@@ -38,24 +38,23 @@
 
 <script lang="ts">
 import { defineComponent, ref, computed } from "vue";
-import { AgentFunctionContext } from "graphai/lib/type";
 
-import { GraphAI } from "graphai";
+import { GraphAI, AgentFunctionContext } from "graphai";
 
 import * as agents from "@graphai/vanilla";
 import { sleeperAgent } from "@graphai/sleeper_agents";
+import { streamAgentFilterGenerator } from "@graphai/agent_filters";
 
 import { graphDataSet } from "@/utils/graph_data";
-
-import { streamAgentFilterBuilder, httpAgentFilter } from "@/utils/agentFilter";
+import { httpAgentFilter } from "@/utils/agentFilter";
 
 import { useCytoscope } from "@/composables/cytoscope";
 
-const serverAgentIds = ["groqAgent", "slashGPTAgent", "groqStreamAgent", "openAIAgent", "fetchAgent", "wikipediaAgent"];
-const streamAgents = ["groqAgent", "slashGPTAgent", "groqStreamAgent", "openAIAgent", "streamMockAgent"];
+const serverAgentIds = ["groqAgent", "slashGPTAgent", "openAIAgent", "fetchAgent", "wikipediaAgent"];
+const streamAgents = ["groqAgent", "slashGPTAgent", "openAIAgent", "streamMockAgent"];
 
 const useAgentFilter = (callback: (context: AgentFunctionContext, data: T) => void) => {
-  const streamAgentFilter = streamAgentFilterBuilder(callback);
+  const streamAgentFilter = streamAgentFilterGenerator(callback);
 
   const agentFilters = [
     {
@@ -77,14 +76,6 @@ const useAgentFilter = (callback: (context: AgentFunctionContext, data: T) => vo
   ];
   return agentFilters;
 };
-
-// llm, service
-const serverAgents = serverAgentIds.reduce((tmp, agentId) => {
-  tmp[agentId] = {
-    agent: () => {},
-  };
-  return tmp;
-}, {});
 
 export default defineComponent({
   name: "HomePage",
@@ -109,7 +100,7 @@ export default defineComponent({
     const runGraph = async () => {
       result.value = {};
       streamingData.value = {};
-      const graphai = new GraphAI(selectedGraph.value, { ...agents, ...serverAgents, sleeperAgent }, { agentFilters });
+      const graphai = new GraphAI(selectedGraph.value, { ...agents, sleeperAgent }, { agentFilters, bypassAgentIds: serverAgentIds });
       graphai.onLogCallback = (log) => {
         const isServer = serverAgentIds.includes(log.agentId);
         updateCytoscope(log.nodeId, log.state === "executing" && isServer ? "executing-server" : log.state);

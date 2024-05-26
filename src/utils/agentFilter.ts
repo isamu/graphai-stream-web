@@ -1,4 +1,4 @@
-import { AgentFilterFunction, AgentFunctionContext } from "graphai/lib/type";
+import { AgentFilterFunction, AgentFunctionContext } from "graphai";
 
 async function* streamChatCompletion(url: string, postData: AgentFunctionContext) {
   const { params, inputs, debugInfo, filterParams } = postData;
@@ -85,12 +85,3 @@ export const httpAgentFilter: AgentFilterFunction = async (context, next) => {
   return next(context);
 };
 
-export const streamAgentFilterBuilder = <T>(callback: (context: AgentFunctionContext, data: T) => void) => {
-  const streamAgentFilter: AgentFilterFunction = async (context, next) => {
-    context.filterParams.streamTokenCallback = (data: T) => {
-      callback(context, data);
-    };
-    return next(context);
-  };
-  return streamAgentFilter;
-};
