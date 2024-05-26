@@ -47,11 +47,11 @@ const graph_data2 = {
         isStreaming: true,
         message: "this is from the server",
       },
-      isResult: true,
     },
     answer: {
       agent: "sleeperAgent",
-      inputs: [":query.choices.$0.message"],
+      inputs: [":query"],
+      isResult: true,
     },
   },
 };
