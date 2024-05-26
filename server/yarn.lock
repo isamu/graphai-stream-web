@@ -2614,21 +2614,6 @@ slashgpt@^0.0.9:
     openai "^4.40.2"
     yaml "^2.3.3"
 
-slashgpt@^0.1.1:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/slashgpt/-/slashgpt-0.1.1.tgz#9d7968f3354258015fcea253fc20019ee6b1f0ea"
-  integrity sha512-hMeijC/Hhq0y+um2Y3ZWneE87hYjWxpKbsE+29VkfZPLywtaJ5hnWLV2StSDjXBCZsWm9GSBHglSgPw4pFB33g==
-  dependencies:
-    "@anthropic-ai/sdk" "^0.20.1"
-    "@huggingface/inference" "^2.7.0"
-    eventsource "^2.0.2"
-    graphql "^16.8.1"
-    graphql-request "^6.1.0"
-    groq-sdk "^0.3.3"
-    openai "^4.40.2"
-    replicate "^0.29.4"
-    yaml "^2.3.3"
-
 slashgpt@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/slashgpt/-/slashgpt-0.1.2.tgz#a773a0164461eccf247d8c9624b9b3d22ee5d614"

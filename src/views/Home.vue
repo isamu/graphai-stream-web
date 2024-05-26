@@ -43,7 +43,7 @@ import { AgentFunctionContext } from "graphai/lib/type";
 import { GraphAI } from "graphai";
 
 import * as agents from "@graphai/vanilla";
-import { sleeperAgent } from "@graphai/agents/lib/sleeper_agents";
+import { sleeperAgent } from "@graphai/sleeper_agents";
 
 import { graphDataSet } from "@/utils/graph_data";
 
