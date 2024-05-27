@@ -18,7 +18,7 @@
     "cytoscape": "^3.29.2",
     "cytoscape-klay": "^3.1.4",
     "deepmerge": "^4.3.1",
-    "graphai": "^0.4.5",
+    "graphai": "^0.4.6",
     "pinia": "^2.1.7",
     "vue": "^3.4.4",
     "vue-i18n": "^9.8.0",
