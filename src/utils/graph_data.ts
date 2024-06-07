@@ -93,25 +93,40 @@ const graph_data4 = {
 const graph_callcenter = {
   version: 0.3,
   nodes: {
-    customerInput: {
+    customerPhoneAudioLog: {
       agent: "streamMockAgent",
       params: {
         message: "hi, tell me hoge hoge",
       },
+    },
+    audio2text: {
+      agent: "streamMockAgent",
+      params: {
+        message: "hi, tell me hoge hoge",
+      },
+      inputs: [":customerPhoneAudioLog"],
     },
     sentiment: {
       agent: "streamMockAgent",
       params: {
         message: "this is my message",
       },
-      inputs: [":customerInput"],
+      inputs: [":customerPhoneAudioLog"],
     },
     talkAnalysis: {
-      inputs: [":customerInput"],
+      inputs: [":audio2text"],
       agent: "streamMockAgent",
       params: {
         message: "angry",
       },
+    },
+    functionCalling: {
+      inputs: [":talkAnalysis"],
+      agent: "streamMockAgent",
+    },
+    onpremiseApi: {
+      inputs: [":functionCalling", ":RAG"],
+      agent: "streamMockAgent",
     },
     RAG: {
       inputs: [":sentiment", ":talkAnalysis"],
@@ -120,13 +135,25 @@ const graph_callcenter = {
         message: "foo",
       },
     },
-    response: {
-      inputs: [":RAG", ":talkAnalysis"],
+    data2speech: {
+      inputs: [":RAG", ":talkAnalysis", ":onpremiseApi"],
       agent: "streamMockAgent",
+
+    },
+    responseToCustomer: {
+      agent: "streamMockAgent",
+      inputs: [":data2speech"],
       params: {
         message: "response",
       },
       isResult: true,
+    },
+    storeToDatabase: {
+      inputs: [":sentiment", ":talkAnalysis", ":onpremiseApi"],
+      agent: "streamMockAgent",
+      params: {
+        message: "response",
+      },
     },
   },
 };
