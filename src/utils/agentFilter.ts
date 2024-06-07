@@ -84,4 +84,3 @@ export const httpAgentFilter: AgentFilterFunction = async (context, next) => {
   }
   return next(context);
 };
-

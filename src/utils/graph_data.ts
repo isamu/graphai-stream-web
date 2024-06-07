@@ -90,7 +90,52 @@ const graph_data4 = {
   },
 };
 
+const graph_callcenter = {
+  version: 0.3,
+  nodes: {
+    customerInput: {
+      agent: "streamMockAgent",
+      params: {
+        message: "hi, tell me hoge hoge",
+      },
+    },
+    sentiment: {
+      agent: "streamMockAgent",
+      params: {
+        message: "this is my message",
+      },
+      inputs: [":customerInput"],
+    },
+    talkAnalysis: {
+      inputs: [":customerInput"],
+      agent: "streamMockAgent",
+      params: {
+        message: "angry",
+      },
+    },
+    RAG: {
+      inputs: [":sentiment", ":talkAnalysis"],
+      agent: "streamMockAgent",
+      params: {
+        message: "foo",
+      },
+    },
+    response: {
+      inputs: [":RAG", ":talkAnalysis"],
+      agent: "streamMockAgent",
+      params: {
+        message: "response",
+      },
+      isResult: true,
+    },
+  },
+};
+
 export const graphDataSet = [
+  {
+    data: graph_callcenter,
+    name: "callcenter",
+  },
   {
     data: graph_data1,
     name: "slashgpt",
