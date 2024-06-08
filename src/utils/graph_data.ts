@@ -109,7 +109,7 @@ const graph_callcenter = {
     sentiment: {
       agent: "streamMockAgent",
       params: {
-        message: "this is my message",
+        message: "angry",
       },
       inputs: [":customerPhoneAudioLog"],
     },
@@ -117,7 +117,7 @@ const graph_callcenter = {
       inputs: [":audio2text"],
       agent: "streamMockAgent",
       params: {
-        message: "angry",
+        message: "this is message",
       },
     },
     functionCalling: {
