@@ -4,6 +4,7 @@ import Blank from "@/components/Blank.vue";
 import NotFound from "@/components/NotFound.vue";
 
 import Home from "@/views/Home.vue";
+import Random from "@/views/Random.vue";
 import Chat from "@/views/Chat.vue";
 import List from "@/views/List.vue";
 import About from "@/views/About.vue";
@@ -17,6 +18,10 @@ const routeChildren: Array<RouteRecordRaw> = [
   {
     path: "chat",
     component: Chat,
+  },
+  {
+    path: "random",
+    component: Random,
   },
   {
     path: "list",
