@@ -6,6 +6,13 @@
           <div ref="cytoscopeRef" class="w-full h-full" />
         </div>
       </div>
+      <div class="mt-2">
+        <div>Static Node: <input type="number" class="border-2 rounded-md p-2" v-model="staticNode" /></div>
+        <div>Dynamic Node: <input type="number" class="border-2 rounded-md p-2" v-model="computedNode" /></div>
+        <div>Concurrency: <input type="number" class="border-2 rounded-md p-2" v-model="concurrency" /></div>
+        <button class="text-white font-bold items-center rounded-full px-4 py-2 m-1 bg-sky-500 hover:bg-sky-700" @click="update">Update</button>
+      </div>
+
       <div class="flex">
         <div class="w-1/8 items-center justify-center">
 
@@ -121,6 +128,10 @@ export default defineComponent({
 
       selectedGraphIndex,
       update,
+
+      staticNode,
+      computedNode,
+      concurrency,
       
       cytoscopeRef,
     };
