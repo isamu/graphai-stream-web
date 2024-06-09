@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from "vue";
+import { defineComponent, ref } from "vue";
 
 import { GraphAI, AgentFunctionContext } from "graphai";
 
@@ -108,6 +108,10 @@ export default defineComponent({
     const agentServer = async () => {
       runGraph();
     };
+    const update = () => {
+      console.log("update");
+      selectedGraph.value = generateGraph(staticNode.value, computedNode.value, concurrency.value);
+    };
     return {
       agentServer,
       runGraph,
@@ -116,7 +120,8 @@ export default defineComponent({
       result,
 
       selectedGraphIndex,
-
+      update,
+      
       cytoscopeRef,
     };
   },

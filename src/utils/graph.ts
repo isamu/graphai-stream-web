@@ -1,3 +1,5 @@
+import { GraphData, NodeData } from "graphai";
+
 const arrays = (num: number) => {
   return new Array(num).fill(undefined);
 };
