@@ -311,6 +311,14 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
+"@receptron/graphai_vue_cytoscope@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@receptron/graphai_vue_cytoscope/-/graphai_vue_cytoscope-0.0.3.tgz#809479e6ce9d8a074d25983181672d85cda6f65e"
+  integrity sha512-WDvURCZITv6uZbzrDgZ/2cJ7bVHnkKD0tkyvAvPmMVcKhxh7EiP9AE7cGE9Kk23xCM5Vqr7OPvySd3lzospozw==
+  dependencies:
+    cytoscape "^3.29.2"
+    cytoscape-klay "^3.1.4"
+
 "@rollup/rollup-android-arm-eabi@4.17.2":
   version "4.17.2"
   resolved "https://registry.yarnpkg.com/@rollup/rollup-android-arm-eabi/-/rollup-android-arm-eabi-4.17.2.tgz#1a32112822660ee104c5dd3a7c595e26100d4c2d"

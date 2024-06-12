@@ -49,7 +49,7 @@ import { generateGraph } from "@/utils/graph";
 
 import { httpAgentFilter } from "@/utils/agentFilter";
 
-import { useCytoscope } from "@/composables/cytoscope";
+import { useCytoscope } from "@receptron/graphai_vue_cytoscope";
 
 const serverAgentIds = ["groqAgent", "slashGPTAgent", "openAIAgent", "fetchAgent", "wikipediaAgent"];
 const streamAgents = ["groqAgent", "slashGPTAgent", "openAIAgent", "streamMockAgent"];
