@@ -1,8 +1,8 @@
 import { AgentFilterFunction, AgentFunctionContext } from "graphai";
 
 async function* streamChatCompletion(url: string, postData: AgentFunctionContext) {
-  const { params, inputs, debugInfo, filterParams } = postData;
-  const postBody = { params, inputs, debugInfo, filterParams };
+  const { params, inputs, namedInputs, debugInfo, filterParams } = postData;
+  const postBody = { params, inputs, debugInfo, filterParams, namedInputs };
 
   const completion = await fetch(url, {
     headers: {
@@ -64,7 +64,8 @@ const httpRequest = async (url: string, postData: AgentFunctionContext) => {
 };
 
 export const httpAgentFilter: AgentFilterFunction = async (context, next) => {
-  const { params, inputs, debugInfo, filterParams } = context;
+  const { params, inputs, debugInfo, filterParams, namedInputs } = context;
+  console.log(context);
   if (filterParams?.server) {
     const { baseUrl } = filterParams.server;
     const agentId = debugInfo.agentId;
@@ -76,6 +77,7 @@ export const httpAgentFilter: AgentFilterFunction = async (context, next) => {
       inputs,
       debugInfo,
       filterParams,
+      namedInputs,
     };
     if (isStreaming) {
       return await streamingRequest(context, url, postData);

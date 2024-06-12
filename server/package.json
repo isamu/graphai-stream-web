@@ -12,8 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@receptron/graphai_express": "^0.0.14",
-    "@graphai/agents": "^0.0.4",
+    "@receptron/graphai_express": "^0.0.17",
+    "@graphai/agents": "^0.0.6",
     "cors": "^2.8.5",
     "express": "^4.19.2"
   },

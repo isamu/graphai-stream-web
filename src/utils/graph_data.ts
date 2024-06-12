@@ -1,5 +1,5 @@
 const graph_data1 = {
-  version: 0.3,
+  version: 0.5,
   loop: {
     while: ":people",
   },
@@ -15,7 +15,7 @@ const graph_data1 = {
     },
     retriever: {
       agent: "shiftAgent",
-      inputs: [":people"],
+      inputs: {array: ":people"},
     },
     query: {
       agent: "slashGPTAgent",
@@ -29,11 +29,11 @@ const graph_data1 = {
     },
     reducer1: {
       agent: "popAgent",
-      inputs: [":query"],
+      inputs: {array: ":query"},
     },
     reducer2: {
       agent: "pushAgent",
-      inputs: [":result", ":reducer1.item"],
+      inputs: {array: ":result", item:":reducer1.item"},
     },
   },
 };
@@ -67,7 +67,7 @@ const graph_data3 = {
       params: {
         stream: true,
       },
-      inputs: [":node1"],
+      inputs: {prompt: ":node1"},
       isResult: true,
     },
   },

@@ -182,22 +182,24 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
-"@graphai/agent_filters@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@graphai/agent_filters/-/agent_filters-0.0.1.tgz#a3e602753719930e47889b5be524c146e3060020"
-  integrity sha512-4Wt9Wzgibi1LyVKEO2VAWeIjks/MCAnASaNiL0oKRPDYRVJ1l/RU/xn1+H7CDNJGNVzytWOYpw7FazmdR1mZUA==
+"@graphai/agent_filters@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@graphai/agent_filters/-/agent_filters-0.0.3.tgz#04be0f9ee8be7ba49700b31922216fbca760ce66"
+  integrity sha512-YrWwcsZWXDBdXvghZY63sxF2A5qF3id8v/+NY++1H5q6D1t47V52bSrdcKlpgPbdMiHJChR1qY5K013nZqXgIw==
+  dependencies:
+    ajv "^8.16.0"
 
-"@graphai/sleeper_agents@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@graphai/sleeper_agents/-/sleeper_agents-0.0.1.tgz#59de8b396127ca118147cead740442e6f7141f4d"
-  integrity sha512-fqoficPfPchqDplKdcLUYySZcpj4wie3V0g8w5EtGA2fa7//2FF+Qf9Qcn4izhNMPshVw3acsaK5eiJgFs04jg==
+"@graphai/sleeper_agents@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@graphai/sleeper_agents/-/sleeper_agents-0.0.2.tgz#1c7c8c75f8d02f6bf57209acf0b713dbc6f1f2f6"
+  integrity sha512-i1kUwGgGdCK0hUTuzgPdN9R3HyIp611KgnUjOn3Yuh8jcL5oPTGy45ROCGoiZsalAe3jrJYHb/LyhfCxGNq1ug==
   dependencies:
     deepmerge "^4.3.1"
 
-"@graphai/vanilla@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@graphai/vanilla/-/vanilla-0.0.1.tgz#d6d2bf2bca3033fd65b36dbfed30fe7b15531c6a"
-  integrity sha512-A0vQeaq9kr1cI4rELDSfFqxVBVsVHsvmpUq/tBbAl4HH0bt7SkwlFcvOdE8bLWGcWV/l29bLAU/VXffZPzzPTA==
+"@graphai/vanilla@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@graphai/vanilla/-/vanilla-0.0.3.tgz#c09449bfc96f54fd8c6b8809cb66c73dc1bbf199"
+  integrity sha512-lYimwhvoq1ULlQoVR7rocY3pqMt6qN6kTmaotKJrsOWtMXzSA6Ac6oQxjI7qblXkbk9BayDZLD+jniy/Krif5Q==
 
 "@humanwhocodes/config-array@^0.11.14":
   version "0.11.14"
@@ -712,6 +714,16 @@ ajv@^6.12.4:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
+
+ajv@^8.16.0:
+  version "8.16.0"
+  resolved "https://registry.yarnpkg.com/ajv/-/ajv-8.16.0.tgz#22e2a92b94f005f7e0f9c9d39652ef0b8f6f0cb4"
+  integrity sha512-F0twR8U1ZU67JIEtekUcLkXkoO5mMMmgGD8sK/xUFzJ805jxHQl92hImFAqqXMyMYjSPOyUPAwHYhB72g5sTXw==
+  dependencies:
+    fast-deep-equal "^3.1.3"
+    json-schema-traverse "^1.0.0"
+    require-from-string "^2.0.2"
+    uri-js "^4.4.1"
 
 ansi-escapes@^4.3.0:
   version "4.3.2"
@@ -1369,10 +1381,10 @@ graceful-fs@^4.1.6, graceful-fs@^4.2.0:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.11.tgz#4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
 
-graphai@^0.4.6:
-  version "0.4.6"
-  resolved "https://registry.yarnpkg.com/graphai/-/graphai-0.4.6.tgz#a3f47c6867dce41c78e45de15676926f2c982a6b"
-  integrity sha512-fu1J6cJt31xAr5w9Szcq/gWhc5stdLedwJT9Qd9vJnngfMRh++FfB2+ODCSHgNljLr0K4EjoGkAWKhPoxxsySg==
+graphai@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/graphai/-/graphai-0.5.1.tgz#ec68bd55273d1e58e90d286aa76d713d26719611"
+  integrity sha512-N+DNQv/J4M13RWyKx13CWuFLlku1PCpB9IjC58HSV8rHJDdl+IzXscJkJPWXy4vBCM3ZKmHEsTk0GP91Nn4FJA==
 
 graphemer@^1.4.0:
   version "1.4.0"
@@ -1518,6 +1530,11 @@ json-schema-traverse@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz#69f6a87d9513ab8bb8fe63bdb0979c448e684660"
   integrity sha512-xbbCH5dCYU5T8LcEhhuh7HJ88HXuW3qsI3Y0zOZFKfZEHcpWiHU/Jxzk629Brsab/mMiHQti9wMP+845RPe3Vg==
+
+json-schema-traverse@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/json-schema-traverse/-/json-schema-traverse-1.0.0.tgz#ae7bcb3656ab77a73ba5c49bf654f38e6b6860e2"
+  integrity sha512-NM8/P9n3XjXhIZn1lLhkFaACTOURQXjWhV4BA/RnOv8xvgqtqpAX9IO4mRQxSx1Rlo4tqzeqb0sOlruaOy3dug==
 
 json-stable-stringify-without-jsonify@^1.0.1:
   version "1.0.1"
@@ -1902,6 +1919,11 @@ readdirp@~3.6.0:
   dependencies:
     picomatch "^2.2.1"
 
+require-from-string@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/require-from-string/-/require-from-string-2.0.2.tgz#89a7fdd938261267318eafe14f9c32e598c36909"
+  integrity sha512-Xf0nWe6RseziFMu+Ap9biiUbmplq6S9/p+7w7YXP/JBHhrUDDUhwa+vANyubuqfZWTveU//DYVGsDG7RKL/vEw==
+
 resolve-from@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-4.0.0.tgz#4abcd852ad32dd7baabfe9b40e00a36db5f392e6"
@@ -2176,7 +2198,7 @@ update-browserslist-db@^1.0.13:
     escalade "^3.1.2"
     picocolors "^1.0.1"
 
-uri-js@^4.2.2:
+uri-js@^4.2.2, uri-js@^4.4.1:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.4.1.tgz#9b1a52595225859e55f669d928f88c6c57f2a77e"
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==

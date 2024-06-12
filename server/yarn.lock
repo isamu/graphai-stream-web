@@ -79,82 +79,70 @@
   resolved "https://registry.yarnpkg.com/@graphai/agent_filters/-/agent_filters-0.0.1.tgz#a3e602753719930e47889b5be524c146e3060020"
   integrity sha512-4Wt9Wzgibi1LyVKEO2VAWeIjks/MCAnASaNiL0oKRPDYRVJ1l/RU/xn1+H7CDNJGNVzytWOYpw7FazmdR1mZUA==
 
-"@graphai/agents@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@graphai/agents/-/agents-0.0.4.tgz#4c98f20fd06def183ad4d1558b48634101d854a1"
-  integrity sha512-zktQWJLGExdteWqnZVPtlKHKc7f3EgCs1hx0tP/x16UQd8vrdEF34+SK9Md00L74fnPg7zQkXPScN2MiHQ6bjw==
+"@graphai/agents@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@graphai/agents/-/agents-0.0.6.tgz#2d775ad470b84e04ed90720ed634eb15afc31677"
+  integrity sha512-Kht5l9l61l+r8D5MaVTZY9E6oy97pij0CCTB0OCoungvVdKRmzKa04ONPceLPLZtRf4Ol1wzhuklxAoNSzlsaA==
   dependencies:
-    "@graphai/data_agents" "^0.0.1"
-    "@graphai/input_agents" "^0.0.1"
-    "@graphai/llm_agents" "^0.0.1"
-    "@graphai/service_agents" "^0.0.2"
-    "@graphai/sleeper_agents" "^0.0.1"
-    "@graphai/vanilla" "^0.0.1"
-    tiktoken "^1.0.14"
+    "@graphai/data_agents" "^0.0.2"
+    "@graphai/input_agents" "^0.0.3"
+    "@graphai/llm_agents" "^0.0.4"
+    "@graphai/service_agents" "^0.0.3"
+    "@graphai/sleeper_agents" "^0.0.2"
+    "@graphai/vanilla" "^0.0.2"
 
-"@graphai/data_agents@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@graphai/data_agents/-/data_agents-0.0.1.tgz#d3df15a7c8631f11c9cf1f9fb1af6db2066d72d2"
-  integrity sha512-BZSpJ/NCtNuPIBrMubALheZ81CG5RfR86uH7oWsv87eLIyMQhOLtpwaiTbxH4LJ0LQlpo8l5lJAlIHKrXl4aHA==
+"@graphai/data_agents@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@graphai/data_agents/-/data_agents-0.0.2.tgz#195ceef45ad8b6e5300318bcc95d420e77912515"
+  integrity sha512-7QTANNSzy2/GtFn4L6npkI5WJnHseYUgodgAzHbicWplLSoZStiKsLsa0eLy9cSwT4GW/0hKTX/Bo4R5RP2dJg==
   dependencies:
     deepmerge "^4.3.1"
 
-"@graphai/input_agents@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@graphai/input_agents/-/input_agents-0.0.1.tgz#b33436a4d74b6924d72ac1d58a4cb149055a3423"
-  integrity sha512-HJVfQa04VzyKcDuDfrn0e6t1QJshyMVUoFuEbIIieMbGgOho09l5MYxgCRJL5WF/Xe0zKDgdAVu6tuPsTgi8tw==
+"@graphai/input_agents@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@graphai/input_agents/-/input_agents-0.0.3.tgz#a7627735b2e11b670a8f95bf6858dea8ad98def7"
+  integrity sha512-6aEJ+lEpqK8j97HBfUV66EWkRDNOpLL9EzL/+QOtDN9bvWzv8reWdWmnGUcRklJoorqnP3mEYaHp42jb0X2CkA==
   dependencies:
     "@inquirer/prompts" "^5.0.0"
 
-"@graphai/llm_agents@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@graphai/llm_agents/-/llm_agents-0.0.1.tgz#a5d2a581a0fc68b6f093c8422486e244cb858348"
-  integrity sha512-SxOlG217vQkV8qA2Oty7HzWnqJYdGo0aWXIBK6pGjHTnU7LIcHtQzZz9gN+5pvIG8N8JVg8gw468vS3FZsrOGQ==
+"@graphai/llm_agents@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@graphai/llm_agents/-/llm_agents-0.0.4.tgz#4721f38edff2a4aa4d06994e2f2ff8fae621d8ac"
+  integrity sha512-0h/1f+5d8ZxQzDXkF7sW/SBo0ocr2LGtCE0UV4Hqt7WfbW81oX749N6TBG2H+9bYEOUpw3p82B/8IUi/U6TSNA==
   dependencies:
     "@anthropic-ai/sdk" "^0.21.0"
     "@google/generative-ai" "^0.11.4"
     groq-sdk "^0.3.3"
     openai "^4.47.1"
     slashgpt "^0.0.9"
+    tiktoken "^1.0.14"
 
-"@graphai/service_agents@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@graphai/service_agents/-/service_agents-0.0.2.tgz#071b9a3198759e559ab00ec3f46058529b53b302"
-  integrity sha512-78biid0EpIM9hv+bWnWWmvd8mM0hDV9XBOK/KrHwSvlfCiBTfApnmM43oIIVoV2efIVpfq+DQqKgyUWdIyndGg==
+"@graphai/service_agents@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@graphai/service_agents/-/service_agents-0.0.3.tgz#ec7d0f1a0cb83a4060d3e0da6fdf0ed862a17cd5"
+  integrity sha512-dOTrkJHnYp317MDozusBm25ewckCI6agF9ZacUP7ps94TQmc4O4O32RsURL0kDSuvnj2P820rblLu6Gpk8IQsg==
   dependencies:
     "@types/xml2js" "^0.4.14"
     deepmerge "^4.3.1"
     wikipedia "^2.1.2"
     xml2js "^0.6.2"
 
-"@graphai/sleeper_agents@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@graphai/sleeper_agents/-/sleeper_agents-0.0.1.tgz#59de8b396127ca118147cead740442e6f7141f4d"
-  integrity sha512-fqoficPfPchqDplKdcLUYySZcpj4wie3V0g8w5EtGA2fa7//2FF+Qf9Qcn4izhNMPshVw3acsaK5eiJgFs04jg==
+"@graphai/sleeper_agents@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@graphai/sleeper_agents/-/sleeper_agents-0.0.2.tgz#1c7c8c75f8d02f6bf57209acf0b713dbc6f1f2f6"
+  integrity sha512-i1kUwGgGdCK0hUTuzgPdN9R3HyIp611KgnUjOn3Yuh8jcL5oPTGy45ROCGoiZsalAe3jrJYHb/LyhfCxGNq1ug==
   dependencies:
     deepmerge "^4.3.1"
 
-"@graphai/vanilla@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@graphai/vanilla/-/vanilla-0.0.1.tgz#d6d2bf2bca3033fd65b36dbfed30fe7b15531c6a"
-  integrity sha512-A0vQeaq9kr1cI4rELDSfFqxVBVsVHsvmpUq/tBbAl4HH0bt7SkwlFcvOdE8bLWGcWV/l29bLAU/VXffZPzzPTA==
+"@graphai/vanilla@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@graphai/vanilla/-/vanilla-0.0.2.tgz#fabaf30399ec526ab339ddaa0fc2bbab46d20861"
+  integrity sha512-Ek2DKu4HFl/Kj3dEV/X6IRaI3XTxPEISiW9O+JrG4mph6k9OzsXY1lPHNCQsPj5j9r5turWGjgkfALYp9QeaqQ==
 
 "@graphql-typed-document-node/core@^3.2.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@graphql-typed-document-node/core/-/core-3.2.0.tgz#5f3d96ec6b2354ad6d8a28bf216a1d97b5426861"
   integrity sha512-mB9oAsNCm9aM3/SOv4YtBMqZbYj10R7dkq8byBqxGY/ncFwhf2oQzMV+LCRlWoDSEBJ3COiR1yeDvMtsoOsuFQ==
-
-"@huggingface/inference@^2.7.0":
-  version "2.7.0"
-  resolved "https://registry.yarnpkg.com/@huggingface/inference/-/inference-2.7.0.tgz#7a44a3c40683b9355933e98e639998da62c58117"
-  integrity sha512-u7Fn637Q3f7nUB1tajM4CgzhvoFQkOQr5W5Fm+2wT9ETgGoLBh25BLlYPTJRjAd2WY01s71v0lqAwNvHHCc3mg==
-  dependencies:
-    "@huggingface/tasks" "^0.10.0"
-
-"@huggingface/tasks@^0.10.0":
-  version "0.10.6"
-  resolved "https://registry.yarnpkg.com/@huggingface/tasks/-/tasks-0.10.6.tgz#aa507669bf86814f142b4e969c095c1772418d4a"
-  integrity sha512-aGqvPsZZ8JLkAs7IChsEZil/aNLoMsqDryDFqJV7N5u//EaHzHAU6ORwVxEJIWJ9MIqJauJ9f7LYNtKC5Axh3w==
 
 "@humanwhocodes/config-array@^0.11.14":
   version "0.11.14"
@@ -331,24 +319,15 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@receptron/graphai_express@^0.0.13":
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/@receptron/graphai_express/-/graphai_express-0.0.13.tgz#87b784bd17509cee32f3e9c3f61766a82240cef2"
-  integrity sha512-Nyg7RGBRzi0RpLwoLieB9hhsQtFaCQ4iphqAxM9zlP8Z7FhgAqh0WYSzQuy7qmexmff5VgkABq2zbcqZgkSmtg==
+"@receptron/graphai_express@^0.0.17":
+  version "0.0.17"
+  resolved "https://registry.yarnpkg.com/@receptron/graphai_express/-/graphai_express-0.0.17.tgz#68029cf31f4cf82406a62869b657a2597dfacc37"
+  integrity sha512-Vvg1m4CpJmduhhWyBqGeXuFjiV3MFRIXcpUwP74IAv4TzVnuZu/J9TP9ZhYkkIv23FXisC1R8VnPCSJQrIGoLw==
   dependencies:
     "@graphai/agent_filters" "^0.0.1"
-    "@inquirer/prompts" "^5.0.0"
-    deepmerge "^4.3.1"
     dotenv "^16.4.5"
     express "^4.19.2"
     graphai "^0.4.6"
-    groq-sdk "^0.3.3"
-    openai "^4.12.4"
-    slashgpt "^0.1.2"
-    tiktoken "^1.0.14"
-    wikipedia "^2.1.2"
-    xml2js "^0.6.2"
-    yaml "^2.3.3"
 
 "@tsconfig/node10@^1.0.7":
   version "1.0.11"
@@ -787,11 +766,6 @@ base-64@^0.1.0:
   resolved "https://registry.yarnpkg.com/base-64/-/base-64-0.1.0.tgz#780a99c84e7d600260361511c4877613bf24f6bb"
   integrity sha512-Y5gU45svrR5tI2Vt/X9GPd3L0HNIKzGu202EjxrXMpuc2V2CiKgemAbUUsqYmZJvPtCXoUKjNZwBJzsNScUbXA==
 
-base64-js@^1.3.1:
-  version "1.5.1"
-  resolved "https://registry.yarnpkg.com/base64-js/-/base64-js-1.5.1.tgz#1b1b440160a5bf7ad40b650f095963481903930a"
-  integrity sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA==
-
 binary-extensions@^2.0.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.3.0.tgz#f6e14a97858d327252200242d4ccfe522c445522"
@@ -836,14 +810,6 @@ braces@^3.0.2, braces@~3.0.2:
   integrity sha512-b8um+L1RzM3WDSzvhm6gIz1yfTbBt6YTlcEKAvsmqCZZFw46z626lVj9j1yEPW33H5H+lBQpZMP1k8l+78Ha0A==
   dependencies:
     fill-range "^7.0.1"
-
-buffer@^6.0.3:
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/buffer/-/buffer-6.0.3.tgz#2ace578459cc8fbe2a70aaa8f52ee63b6a74c6c6"
-  integrity sha512-FTiCpNxtwiZZHEZbcbTIcZjERVICn9yq/pDFkTl95/AxzD1naBctN7YO68riM/gLSDY7sdrMby8hofADYuuqOA==
-  dependencies:
-    base64-js "^1.3.1"
-    ieee754 "^1.2.1"
 
 bytes@3.1.2:
   version "3.1.2"
@@ -1389,16 +1355,6 @@ event-target-shim@^5.0.0:
   resolved "https://registry.yarnpkg.com/event-target-shim/-/event-target-shim-5.0.1.tgz#5d4d3ebdf9583d63a5333ce2deb7480ab2b05789"
   integrity sha512-i/2XbnSz/uxRCU6+NdVJgKWDTM427+MqYbkQzD321DuCQJUqOuJKIA0IM2+W2xtYHdKOmZ4dR6fExsd4SXL+WQ==
 
-events@^3.3.0:
-  version "3.3.0"
-  resolved "https://registry.yarnpkg.com/events/-/events-3.3.0.tgz#31a95ad0a924e2d2c419a813aeb2c4e878ea7400"
-  integrity sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==
-
-eventsource@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/eventsource/-/eventsource-2.0.2.tgz#76dfcc02930fb2ff339520b6d290da573a9e8508"
-  integrity sha512-IzUmBGPR3+oUG9dUeXynyNmf91/3zUSJg1lCktzKw47OXuhco54U3r9B7O4XX+Rb1Itm9OZ2b0RkTs10bICOxA==
-
 express@^4.19.2:
   version "4.19.2"
   resolved "https://registry.yarnpkg.com/express/-/express-4.19.2.tgz#e25437827a3aa7f2a827bc8171bbbb664a356465"
@@ -1784,11 +1740,6 @@ iconv-lite@0.4.24, iconv-lite@^0.4.24:
   integrity sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==
   dependencies:
     safer-buffer ">= 2.1.2 < 3"
-
-ieee754@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/ieee754/-/ieee754-1.2.1.tgz#8eb7a10a63fff25d15a57b001586d177d1b0d352"
-  integrity sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==
 
 ignore@^5.2.0, ignore@^5.2.4:
   version "5.3.1"
@@ -2253,7 +2204,7 @@ once@^1.3.0:
   dependencies:
     wrappy "1"
 
-openai@^4.12.4, openai@^4.40.2, openai@^4.47.1:
+openai@^4.40.2, openai@^4.47.1:
   version "4.47.1"
   resolved "https://registry.yarnpkg.com/openai/-/openai-4.47.1.tgz#1d23c7a8eb3d7bcdc69709cd905f4c9af0181dba"
   integrity sha512-WWSxhC/69ZhYWxH/OBsLEirIjUcfpQ5+ihkXKp06hmeYXgBBIUCa9IptMzYx6NdkiOCsSGYCnTIsxaic3AjRCQ==
@@ -2367,11 +2318,6 @@ prettier@^3.0.3:
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.2.5.tgz#e52bc3090586e824964a8813b09aba6233b28368"
   integrity sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==
 
-process@^0.11.10:
-  version "0.11.10"
-  resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
-  integrity sha512-cdGef/drWFoydD1JsMzuFf8100nZl+GT+yacc2bEced5f9Rjk4z+WtFUTBu9PhOi9j/jfmBPu0mMEY4wIdAF8A==
-
 proxy-addr@~2.0.7:
   version "2.0.7"
   resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-2.0.7.tgz#f19fe69ceab311eeb94b42e70e8c2070f9ba1025"
@@ -2422,17 +2368,6 @@ raw-body@2.5.2:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
-readable-stream@>=4.0.0:
-  version "4.5.2"
-  resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-4.5.2.tgz#9e7fc4c45099baeed934bff6eb97ba6cf2729e09"
-  integrity sha512-yjavECdqeZ3GLXNgRXgeQEdz9fvDDkNKyHnbHRFtOr7/LcfgBcmct7t/ET+HaCTqfh06OzoAxrkN/IfjJBVe+g==
-  dependencies:
-    abort-controller "^3.0.0"
-    buffer "^6.0.3"
-    events "^3.3.0"
-    process "^0.11.10"
-    string_decoder "^1.3.0"
-
 readdirp@~3.6.0:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/readdirp/-/readdirp-3.6.0.tgz#74a370bd857116e245b29cc97340cd431a02a6c7"
@@ -2449,13 +2384,6 @@ regexp.prototype.flags@^1.5.2:
     define-properties "^1.2.1"
     es-errors "^1.3.0"
     set-function-name "^2.0.1"
-
-replicate@^0.29.4:
-  version "0.29.4"
-  resolved "https://registry.yarnpkg.com/replicate/-/replicate-0.29.4.tgz#27bee748c9ac17f397f63a8929e5548376a411df"
-  integrity sha512-BizXBehB2Rjil3o2R9Vy9fd0k3w7aIoXtc/+vdOmitC2viW3pSMt0GwC4h+OmMpx9zot90C43wrssyMJ3rMScQ==
-  optionalDependencies:
-    readable-stream ">=4.0.0"
 
 resolve-from@^4.0.0:
   version "4.0.0"
@@ -2500,7 +2428,7 @@ safe-array-concat@^1.1.2:
     has-symbols "^1.0.3"
     isarray "^2.0.5"
 
-safe-buffer@5.2.1, safe-buffer@~5.2.0:
+safe-buffer@5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/safe-buffer/-/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
   integrity sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==
@@ -2633,21 +2561,6 @@ slashgpt@^0.0.9:
     openai "^4.40.2"
     yaml "^2.3.3"
 
-slashgpt@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/slashgpt/-/slashgpt-0.1.2.tgz#a773a0164461eccf247d8c9624b9b3d22ee5d614"
-  integrity sha512-jYTWnWoOCImg54xqC69QUgoAB8A9nJQ/EG5c+M35LbnNIm/JOUDIACvWg0enTA5PAr14qWaQhXSSi6cs4e00Bw==
-  dependencies:
-    "@anthropic-ai/sdk" "^0.20.1"
-    "@huggingface/inference" "^2.7.0"
-    eventsource "^2.0.2"
-    graphql "^16.8.1"
-    graphql-request "^6.1.0"
-    groq-sdk "^0.3.3"
-    openai "^4.40.2"
-    replicate "^0.29.4"
-    yaml "^2.3.3"
-
 statuses@2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-2.0.1.tgz#55cb000ccf1d48728bd23c685a063998cf1a1b63"
@@ -2689,13 +2602,6 @@ string.prototype.trimstart@^1.0.8:
     call-bind "^1.0.7"
     define-properties "^1.2.1"
     es-object-atoms "^1.0.0"
-
-string_decoder@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.3.0.tgz#42f114594a46cf1a8e30b0a84f56c78c3edac21e"
-  integrity sha512-hkRX8U1WjJFd8LsDJ2yQ/wWWxaopEsABU1XfkM8A+j0+85JAGppt16cr1Whg6KIbb4okU6Mql6BOj+uup/wKeA==
-  dependencies:
-    safe-buffer "~5.2.0"
 
 strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
