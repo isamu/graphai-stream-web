@@ -1,5 +1,5 @@
 import { ComputedRef, Ref, ref, onMounted, watch } from "vue";
-import { NodeState, NodeData } from "graphai/lib/type";
+import { NodeState, NodeData } from "graphai";
 import { GraphData } from "graphai";
 
 import cytoscape, { Core, NodeSingular, NodeDefinition, EdgeDefinition, EdgeSingular } from "cytoscape";
@@ -104,7 +104,8 @@ const cytoscapeFromGraph = (graph_data: GraphData) => {
       tmp.map[nodeId] = cyNode;
       if ("inputs" in node) {
         // computed node
-        (node.inputs ?? []).forEach((input: string) => {
+        const inputs = Array.isArray(node.inputs) ? node.inputs : Object.values(node.inputs || {});
+        (inputs ?? []).forEach((input: string) => {
           const { source, label } = parseInput(input);
           tmp.edges.push({
             data: {
