@@ -3,7 +3,7 @@
     <div>
       <div>
         <div class="w-10/12 h-96 bg-white rounded-md mt-4 mx-auto border-2">
-          <div ref="cytoscopeRef" class="w-full h-full" />
+          <div ref="cytoscapeRef" class="w-full h-full" />
         </div>
       </div>
       <div class="mt-2">
@@ -49,7 +49,7 @@ import { generateGraph } from "@/utils/graph";
 
 import { httpAgentFilter } from "@/utils/agentFilter";
 
-import { useCytoscope } from "@receptron/graphai_vue_cytoscope";
+import { useCytoscape } from "@receptron/graphai_vue_cytoscape";
 
 const serverAgentIds = ["groqAgent", "slashGPTAgent", "openAIAgent", "fetchAgent", "wikipediaAgent"];
 const streamAgents = ["groqAgent", "slashGPTAgent", "openAIAgent", "streamMockAgent"];
@@ -99,7 +99,7 @@ export default defineComponent({
     };
     const agentFilters = useAgentFilter(callback);
 
-    const { updateCytoscope, cytoscopeRef } = useCytoscope(selectedGraph);
+    const { updateCytoscape, cytoscapeRef } = useCytoscape(selectedGraph);
 
     const runGraph = async () => {
       result.value = {};
@@ -107,7 +107,7 @@ export default defineComponent({
       const graphai = new GraphAI(selectedGraph.value, { ...agents, sleeperAgent }, { agentFilters, bypassAgentIds: serverAgentIds });
       graphai.onLogCallback = (log) => {
         const isServer = serverAgentIds.includes(log.agentId);
-        updateCytoscope(log.nodeId, log.state === "executing" && isServer ? "executing-server" : log.state);
+        updateCytoscape(log.nodeId, log.state === "executing" && isServer ? "executing-server" : log.state);
       };
       result.value = await graphai.run();
     };
@@ -133,7 +133,7 @@ export default defineComponent({
       computedNode,
       concurrency,
       
-      cytoscopeRef,
+      cytoscapeRef,
     };
   },
 });
