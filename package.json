@@ -9,7 +9,7 @@
     "format": "prettier --write '{src/**/*,*}.{js,ts,vue,json}'"
   },
   "dependencies": {
-    "@graphai/agent_filters": "^0.0.3",
+    "@graphai/agent_filters": "^0.0.4",
     "@graphai/sleeper_agents": "^0.0.2",
     "@graphai/vanilla": "^0.0.3",
     "@receptron/graphai_vue_cytoscape": "^0.0.2",

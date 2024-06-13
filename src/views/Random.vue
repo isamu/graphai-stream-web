@@ -43,13 +43,10 @@ import { GraphAI, AgentFunctionContext } from "graphai";
 
 import * as agents from "@graphai/vanilla";
 import { sleeperAgent } from "@graphai/sleeper_agents";
-import { streamAgentFilterGenerator } from "@graphai/agent_filters";
+import { streamAgentFilterGenerator, httpAgentFilter } from "@graphai/agent_filters";
+import { useCytoscape } from "@receptron/graphai_vue_cytoscape";
 
 import { generateGraph } from "@/utils/graph";
-
-import { httpAgentFilter } from "@/utils/agentFilter";
-
-import { useCytoscape } from "@receptron/graphai_vue_cytoscape";
 
 const serverAgentIds = ["groqAgent", "slashGPTAgent", "openAIAgent", "fetchAgent", "wikipediaAgent"];
 const streamAgents = ["groqAgent", "slashGPTAgent", "openAIAgent", "streamMockAgent"];

@@ -5,19 +5,12 @@ import NotFound from "@/components/NotFound.vue";
 
 import Home from "@/views/Home.vue";
 import Random from "@/views/Random.vue";
-import Chat from "@/views/Chat.vue";
 import List from "@/views/List.vue";
-import About from "@/views/About.vue";
-import MyPage from "@/views/MyPage.vue";
 
 const routeChildren: Array<RouteRecordRaw> = [
   {
     path: "",
     component: Home,
-  },
-  {
-    path: "chat",
-    component: Chat,
   },
   {
     path: "random",
@@ -26,14 +19,6 @@ const routeChildren: Array<RouteRecordRaw> = [
   {
     path: "list",
     component: List,
-  },
-  {
-    path: "about",
-    component: About,
-  },
-  {
-    path: "mypage",
-    component: MyPage,
   },
 ];
 
