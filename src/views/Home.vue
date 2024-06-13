@@ -69,7 +69,6 @@ const useAgentFilter = (callback: (context: AgentFunctionContext, data: T) => vo
       filterParams: {
         server: {
           baseUrl: "http://localhost:8085/agents",
-          stream: true,
         },
       },
       agentIds: serverAgentIds,

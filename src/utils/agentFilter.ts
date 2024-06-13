@@ -32,12 +32,14 @@ async function* streamChatCompletion(url: string, postData: AgentFunctionContext
   }
 }
 
-const streamingRequest = async (context: AgentFunctionContext, url: string, postData: AgentFunctionContext) => {
+const streamingRequest = async (context: AgentFunctionContext, url: string, postData: AgentFunctionContext, isDebug: boolean | undefined) => {
   const generator = streamChatCompletion(url, postData);
 
   const messages = [];
   for await (const token of generator) {
-    console.log(token);
+    if (isDebug) {
+      console.log(token);
+    }
     // callback to stream filter
     if (token) {
       messages.push(token);
@@ -65,9 +67,9 @@ const httpRequest = async (url: string, postData: AgentFunctionContext) => {
 
 export const httpAgentFilter: AgentFilterFunction = async (context, next) => {
   const { params, inputs, debugInfo, filterParams, namedInputs } = context;
-  console.log(context);
+
   if (filterParams?.server) {
-    const { baseUrl } = filterParams.server;
+    const { baseUrl, isDebug } = filterParams.server;
     const agentId = debugInfo.agentId;
     const isStreaming = filterParams.streamTokenCallback !== undefined;
     const url = [baseUrl, agentId].join("/");
@@ -80,7 +82,7 @@ export const httpAgentFilter: AgentFilterFunction = async (context, next) => {
       namedInputs,
     };
     if (isStreaming) {
-      return await streamingRequest(context, url, postData);
+      return await streamingRequest(context, url, postData, isDebug);
     }
     return await httpRequest(url, postData);
   }
