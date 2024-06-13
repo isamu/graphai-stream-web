@@ -182,10 +182,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
-"@graphai/agent_filters@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@graphai/agent_filters/-/agent_filters-0.0.4.tgz#8963f51c3eba6b6843e8577a4f09bbb59d00899b"
-  integrity sha512-IpbRmzratS2v9FU5UGcROjtq920MFYhXNEvk5rQiusI0t/4/cnfocY0CA9VGXIut+hEp70L/UlGF5OQpzfFRFA==
+"@graphai/agent_filters@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@graphai/agent_filters/-/agent_filters-0.0.5.tgz#dd26e72e200cb8c3a5f09a620fd6cf1df19bb7e3"
+  integrity sha512-wc6YC5KT2toms2q0dGVwkUExNYMK8CojpqkIf1k9bgf3Ii139bF4dXr7ZpBQXP+pYJWzp2eFCDdlx0iew787XA==
   dependencies:
     ajv "^8.16.0"
 
