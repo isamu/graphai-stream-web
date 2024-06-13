@@ -15,7 +15,7 @@ const graph_data1 = {
     },
     retriever: {
       agent: "shiftAgent",
-      inputs: {array: ":people"},
+      inputs: { array: ":people" },
     },
     query: {
       agent: "slashGPTAgent",
@@ -29,11 +29,11 @@ const graph_data1 = {
     },
     reducer1: {
       agent: "popAgent",
-      inputs: {array: ":query"},
+      inputs: { array: ":query" },
     },
     reducer2: {
       agent: "pushAgent",
-      inputs: {array: ":result", item:":reducer1.item"},
+      inputs: { array: ":result", item: ":reducer1.item" },
     },
   },
 };
@@ -67,7 +67,7 @@ const graph_data3 = {
       params: {
         stream: true,
       },
-      inputs: {prompt: ":node1"},
+      inputs: { prompt: ":node1" },
       isResult: true,
     },
   },
@@ -138,7 +138,6 @@ const graph_callcenter = {
     data2speech: {
       inputs: [":RAG", ":talkAnalysis", ":onpremiseApi"],
       agent: "streamMockAgent",
-
     },
     responseToCustomer: {
       agent: "streamMockAgent",

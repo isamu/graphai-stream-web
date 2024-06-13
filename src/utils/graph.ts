@@ -9,12 +9,7 @@ export const randomInt = (num: number) => {
 export const randomInt2 = (num: number) => {
   return Math.floor((1 - Math.random() * Math.random()) * num);
 };
-const inputAgentNames = [
-  "SqlAgent",
-  "S3Agent",
-  "mailAgent",
-  "PhoneAudioAgent",
-];
+const inputAgentNames = ["SqlAgent", "S3Agent", "mailAgent", "PhoneAudioAgent"];
 
 const agentNames = [
   "sqlAgent",
@@ -48,7 +43,7 @@ export const generateGraph = (staticNode: number = 10, computedNode: number = 50
 
   arrays(computedNode).forEach((__i, k) => {
     const index = Math.floor(Math.random() * agentNames.length);
-    
+
     // const name = "node_" + k;
     const name = agentNames[index] + "_" + k;
 
