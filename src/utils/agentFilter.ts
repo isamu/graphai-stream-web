@@ -54,7 +54,6 @@ const streamingRequest = async (context: AgentFunctionContext, url: string, post
   return data;
 };
 const httpRequest = async (url: string, postData: AgentFunctionContext) => {
-  // http
   const response = await fetch(url, {
     method: "post",
     headers: {

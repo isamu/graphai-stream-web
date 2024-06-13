@@ -42,7 +42,6 @@ import { defineComponent, ref, computed } from "vue";
 import { GraphAI, AgentFunctionContext } from "graphai";
 
 import * as agents from "@graphai/vanilla";
-console.log(agents);
 import { sleeperAgent } from "@graphai/sleeper_agents";
 import { streamAgentFilterGenerator } from "@graphai/agent_filters";
 
@@ -100,7 +99,7 @@ export default defineComponent({
     const runGraph = async () => {
       result.value = {};
       streamingData.value = {};
-      console.log(selectedGraph.value);
+
       const graphai = new GraphAI(selectedGraph.value, { ...agents, sleeperAgent }, { agentFilters, bypassAgentIds: serverAgentIds });
       graphai.onLogCallback = (log) => {
         const isServer = serverAgentIds.includes(log.agentId);
