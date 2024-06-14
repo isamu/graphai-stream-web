@@ -65,7 +65,11 @@ const graph_data3 = {
     node2: {
       agent: "openAIAgent",
       params: {
-        stream: true,
+        // stream: true,
+        baseURL: 'http://127.0.0.1:11434/v1',
+        model: "llama3",
+        apiKey: "llama3",
+        forWeb: true,
       },
       inputs: { prompt: ":node1" },
       isResult: true,

@@ -43,13 +43,14 @@ import { GraphAI, AgentFunctionContext } from "graphai";
 
 import * as agents from "@graphai/vanilla";
 import { sleeperAgent } from "@graphai/sleeper_agents";
+import { openAIAgent } from "@graphai/openai_agent";
 import { streamAgentFilterGenerator, httpAgentFilter } from "@graphai/agent_filters";
 
 import { graphDataSet } from "@/utils/graph_data";
 
 import { useCytoscape } from "@receptron/graphai_vue_cytoscape";
 
-const serverAgentIds = ["groqAgent", "slashGPTAgent", "openAIAgent", "fetchAgent", "wikipediaAgent"];
+const serverAgentIds = ["groqAgent", "slashGPTAgent", "fetchAgent", "wikipediaAgent"];
 const streamAgents = ["groqAgent", "slashGPTAgent", "openAIAgent", "streamMockAgent"];
 
 const useAgentFilter = (callback: (context: AgentFunctionContext, data: T) => void) => {
@@ -99,7 +100,7 @@ export default defineComponent({
       result.value = {};
       streamingData.value = {};
 
-      const graphai = new GraphAI(selectedGraph.value, { ...agents, sleeperAgent }, { agentFilters, bypassAgentIds: serverAgentIds });
+      const graphai = new GraphAI(selectedGraph.value, { ...agents, sleeperAgent, openAIAgent }, { agentFilters, bypassAgentIds: serverAgentIds });
       graphai.onLogCallback = (log) => {
         const isServer = serverAgentIds.includes(log.agentId);
         updateCytoscape(log.nodeId, log.state === "executing" && isServer ? "executing-server" : log.state);
