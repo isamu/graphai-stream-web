@@ -8,6 +8,8 @@ Testing streaming of llm/slashgpt/graphai
 ## 📋 Requirements
 
 - Node.js version 18 or later.
+- https://github.com/receptron/graphai-agent-server
+  - run server
 
 ## 📖 Instruction
 
@@ -17,22 +19,9 @@ Testing streaming of llm/slashgpt/graphai
 
 ## Usage
 
-### run server
-Before run, set openai key
-
-server/.env
-```
-OPENAI_API_KEY=sk-xxxx
-```
-
 Run server.
 
-```
-cd server
-yarn run server
-```
-
-### run web
+Run web
 
 ```
 yarn install
