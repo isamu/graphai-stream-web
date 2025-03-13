@@ -100,10 +100,7 @@ export default defineComponent({
       streamingData.value = {};
 
       const graphai = new GraphAI(selectedGraph.value, { ...agents }, { agentFilters, bypassAgentIds: serverAgentIds });
-      graphai.onLogCallback = (log) => {
-        const isServer = serverAgentIds.includes(log.agentId);
-        updateCytoscape(log.nodeId, log.state === "executing" && isServer ? "executing-server" : log.state);
-      };
+      graphai.registerCallback(updateCytoscape);
       result.value = await graphai.run();
     };
 
