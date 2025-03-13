@@ -42,7 +42,7 @@ import { defineComponent, ref, computed } from "vue";
 import { GraphAI, AgentFunctionContext } from "graphai";
 
 import * as agents from "@graphai/vanilla";
-import { sleeperAgent } from "@graphai/sleeper_agents";
+// import { sleeperAgent } from "@graphai/sleeper_agents";
 import { streamAgentFilterGenerator, httpAgentFilter } from "@graphai/agent_filters";
 
 import { graphDataSet } from "@/utils/graph_data";
@@ -99,7 +99,7 @@ export default defineComponent({
       result.value = {};
       streamingData.value = {};
 
-      const graphai = new GraphAI(selectedGraph.value, { ...agents, sleeperAgent }, { agentFilters, bypassAgentIds: serverAgentIds });
+      const graphai = new GraphAI(selectedGraph.value, { ...agents }, { agentFilters, bypassAgentIds: serverAgentIds });
       graphai.onLogCallback = (log) => {
         const isServer = serverAgentIds.includes(log.agentId);
         updateCytoscape(log.nodeId, log.state === "executing" && isServer ? "executing-server" : log.state);
@@ -119,6 +119,7 @@ export default defineComponent({
 
       graphDataSet,
       selectedGraphIndex,
+      selectedGraph,
 
       cytoscapeRef,
     };

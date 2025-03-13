@@ -182,24 +182,32 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
-"@graphai/agent_filters@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@graphai/agent_filters/-/agent_filters-0.0.5.tgz#dd26e72e200cb8c3a5f09a620fd6cf1df19bb7e3"
-  integrity sha512-wc6YC5KT2toms2q0dGVwkUExNYMK8CojpqkIf1k9bgf3Ii139bF4dXr7ZpBQXP+pYJWzp2eFCDdlx0iew787XA==
+"@graphai/agent_filters@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@graphai/agent_filters/-/agent_filters-1.0.0.tgz#29712386a45d3fe4c3dfd3f8436baf58c1e8dde2"
+  integrity sha512-PCHXQ6p/y+4/z9LKPx2JoDuOlBGUzOUpMfeB62tTRIMuLmc5cOMlg7+P9asJCwgjCsl1dIPEIKvoBJnotT3EPA==
   dependencies:
+    "@noble/hashes" "^1.7.1"
     ajv "^8.16.0"
 
-"@graphai/sleeper_agents@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@graphai/sleeper_agents/-/sleeper_agents-0.0.2.tgz#1c7c8c75f8d02f6bf57209acf0b713dbc6f1f2f6"
-  integrity sha512-i1kUwGgGdCK0hUTuzgPdN9R3HyIp611KgnUjOn3Yuh8jcL5oPTGy45ROCGoiZsalAe3jrJYHb/LyhfCxGNq1ug==
+"@graphai/agent_utils@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@graphai/agent_utils/-/agent_utils-0.0.9.tgz#a293a245e8f3b89abca118ee3608d0ea51ed69a3"
+  integrity sha512-hH7kLQ0UMI2vqcm1z6NGCX2veVNxzdF4DwSYk0Nvhxqv4Y9Joqv9vXvLWq+wH/009bTiBFR2qmVYFW8xvsAUlA==
+
+"@graphai/sleeper_agents@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@graphai/sleeper_agents/-/sleeper_agents-0.2.0.tgz#8d908d72573334340814c5d62a5118ec2d6c9c01"
+  integrity sha512-OMI4Jap5V+uFGLi8IU6Pa7J3B0We/6xEyWA/f7JeaSfmtQs8/yv8wTtJHO+3E6WcUeiCGuuFy6+3ffFXwcO91g==
   dependencies:
     deepmerge "^4.3.1"
 
-"@graphai/vanilla@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@graphai/vanilla/-/vanilla-0.0.3.tgz#c09449bfc96f54fd8c6b8809cb66c73dc1bbf199"
-  integrity sha512-lYimwhvoq1ULlQoVR7rocY3pqMt6qN6kTmaotKJrsOWtMXzSA6Ac6oQxjI7qblXkbk9BayDZLD+jniy/Krif5Q==
+"@graphai/vanilla@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/@graphai/vanilla/-/vanilla-1.0.9.tgz#77e36e1619a0a37daf82005b3daf0d78a2ef9242"
+  integrity sha512-/Mwa5EOBuJHmMd16Ph8kSwu1QOSZB+mldsVM/4+hanm7I5+j1Vuf1dcszVGr+wiBrkmZUtbCZN90dp/+Uqo+9Q==
+  dependencies:
+    "@graphai/agent_utils" "^0.0.9"
 
 "@humanwhocodes/config-array@^0.11.14":
   version "0.11.14"
@@ -285,6 +293,11 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@noble/hashes@^1.7.1":
+  version "1.7.1"
+  resolved "https://registry.yarnpkg.com/@noble/hashes/-/hashes-1.7.1.tgz#5738f6d765710921e7a751e00c20ae091ed8db0f"
+  integrity sha512-B8XBPsn4vT/KJAGqDzbwztd+6Yte3P4V7iafm24bxgDe/mlRuK6xmWPuCNrKt2vDafZ8MfJLlchDG/vYafQEjQ==
+
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.scandir/-/fs.scandir-2.1.5.tgz#7619c2eb21b25483f6d167548b4cfd5a7488c3d5"
@@ -311,12 +324,12 @@
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
-"@receptron/graphai_vue_cytoscape@^0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@receptron/graphai_vue_cytoscape/-/graphai_vue_cytoscape-0.0.2.tgz#ea3e9c24582aa31cf09a9e8ef6600ad353589768"
-  integrity sha512-ozWuLXf0rftUW0aG8wjTvS5j9q6i57e3hwTXZdRN4jlB+6qCkw+MwdoitRubP3iS22pWOC9Q3Tp3cIJBT3jV+w==
+"@receptron/graphai_vue_cytoscape@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@receptron/graphai_vue_cytoscape/-/graphai_vue_cytoscape-0.2.0.tgz#896a996ca0b9a1ac963dc781527e850190b1855b"
+  integrity sha512-KFHkPGXEKRzNlbJn5WDCbOR1gVRy00dpCjJ5pBl5cvIqzhQLJzGrIrTgUO5Us7h2Y/BbQW+pGzhRz+xan43tHw==
   dependencies:
-    cytoscape "^3.29.2"
+    cytoscape "^3.30.4"
     cytoscape-klay "^3.1.4"
 
 "@rollup/rollup-android-arm-eabi@4.17.2":
@@ -978,10 +991,10 @@ cytoscape-klay@^3.1.4:
   dependencies:
     klayjs "^0.4.1"
 
-cytoscape@^3.29.2:
-  version "3.29.2"
-  resolved "https://registry.yarnpkg.com/cytoscape/-/cytoscape-3.29.2.tgz#c99f42513c80a75e2e94858add32896c860202ac"
-  integrity sha512-2G1ycU28Nh7OHT9rkXRLpCDP30MKH1dXJORZuBhtEhEW7pKwgPi77ImqlCWinouyE1PNepIOGZBOrE84DG7LyQ==
+cytoscape@^3.30.4:
+  version "3.31.1"
+  resolved "https://registry.yarnpkg.com/cytoscape/-/cytoscape-3.31.1.tgz#29b12cac715fbb2aacc50cdf5cf1467aadde9c00"
+  integrity sha512-Hx5Mtb1+hnmAKaZZ/7zL1Y5HTFYOjdDswZy/jD+1WINRU8KVi1B7+vlHdsTwY+VCFucTreoyu1RDzQJ9u0d2Hw==
 
 de-indent@^1.0.2:
   version "1.0.2"
@@ -1389,10 +1402,10 @@ graceful-fs@^4.1.6, graceful-fs@^4.2.0:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.11.tgz#4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
 
-graphai@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/graphai/-/graphai-0.5.1.tgz#ec68bd55273d1e58e90d286aa76d713d26719611"
-  integrity sha512-N+DNQv/J4M13RWyKx13CWuFLlku1PCpB9IjC58HSV8rHJDdl+IzXscJkJPWXy4vBCM3ZKmHEsTk0GP91Nn4FJA==
+graphai@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/graphai/-/graphai-1.0.1.tgz#ed765bfd369a14f39af92431efaf8b3eea000f10"
+  integrity sha512-ZRCPvhmnm9xsPc0c/skuXcSRytU15rwCt9I+Z0uw05GVrL64dcMQ3kF1KYrfIPNCJ2UvyXpqRyDBMDt3VIpOlA==
 
 graphemer@^1.4.0:
   version "1.4.0"
@@ -2022,8 +2035,16 @@ source-map-js@^1.0.2, source-map-js@^1.2.0:
   resolved "https://registry.yarnpkg.com/source-map-js/-/source-map-js-1.2.0.tgz#16b809c162517b5b8c3e7dcd315a2a5c2612b2af"
   integrity sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==
 
-"string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
-  name string-width-cjs
+"string-width-cjs@npm:string-width@^4.2.0":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
+  integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
+  dependencies:
+    emoji-regex "^8.0.0"
+    is-fullwidth-code-point "^3.0.0"
+    strip-ansi "^6.0.1"
+
+string-width@^4.1.0:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -2041,7 +2062,14 @@ string-width@^5.0.1, string-width@^5.1.2:
     emoji-regex "^9.2.2"
     strip-ansi "^7.0.1"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
+  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
+  dependencies:
+    ansi-regex "^5.0.1"
+
+strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==

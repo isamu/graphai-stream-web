@@ -15,13 +15,25 @@ Testing streaming of llm/slashgpt/graphai
 
 1. Git clone this repository
 2. Run "yarn install" once to get necessary node modules.
-3. Run "yarn install" once in the server directory as well.
 
 ## Usage
 
+### run server
+Before run, set openai key
+
+server/.env
+```
+OPENAI_API_KEY=sk-xxxx
+```
+
 Run server.
 
-Run web
+```
+cd server
+yarn run server
+```
+
+## Run web
 
 ```
 yarn install
