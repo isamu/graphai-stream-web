@@ -39,7 +39,7 @@ const graph_data1 = {
 };
 
 const graph_data2 = {
-  version: 0.3,
+  version: 0.5,
   nodes: {
     query: {
       agent: "streamMockAgent",
@@ -47,17 +47,18 @@ const graph_data2 = {
         isStreaming: true,
         message: "this is from the server",
       },
+      isResult: true,
     },
     answer: {
       agent: "sleeperAgent",
-      inputs: [":query"],
+      inputs: { message: ":query.message" },
       isResult: true,
     },
   },
 };
 
 const graph_data3 = {
-  version: 0.3,
+  version: 0.5,
   nodes: {
     node1: {
       value: "Please tell me about photosynthesis in 50 words.",
@@ -74,13 +75,13 @@ const graph_data3 = {
 };
 
 const graph_data4 = {
-  version: 0.3,
+  version: 0.5,
   nodes: {
     input: {
       value: "Steve Wozniak",
     },
     wikipedia: {
-      inputs: [":input"],
+      inputs: { query: ":input" },
       agent: "wikipediaAgent",
       isResult: true,
       params: {
@@ -91,68 +92,93 @@ const graph_data4 = {
 };
 
 const graph_callcenter = {
-  version: 0.3,
+  version: 0.5,
   nodes: {
     customerPhoneAudioLog: {
       agent: "streamMockAgent",
       params: {
         message: "hi, tell me hoge hoge",
       },
+      isResult: true,
     },
     audio2text: {
       agent: "streamMockAgent",
-      params: {
-        message: "hi, tell me hoge hoge",
+      inputs: {
+        message: ":customerPhoneAudioLog.message",
       },
-      inputs: [":customerPhoneAudioLog"],
+      isResult: true,
     },
     sentiment: {
       agent: "streamMockAgent",
       params: {
         message: "angry",
       },
-      inputs: [":customerPhoneAudioLog"],
+      inputs: {
+        wait: ":customerPhoneAudioLog",
+      },
+      isResult: true,
     },
     talkAnalysis: {
-      inputs: [":audio2text"],
+      inputs: {
+        wait: ":audio2text",
+      },
       agent: "streamMockAgent",
       params: {
         message: "this is message",
       },
+      isResult: true,
     },
     functionCalling: {
-      inputs: [":talkAnalysis"],
+      inputs: {
+        message: ":talkAnalysis.message",
+      },
       agent: "streamMockAgent",
+      isResult: true,
     },
     onpremiseApi: {
-      inputs: [":functionCalling", ":RAG"],
+      inputs: {
+        message: ":functionCalling.message",
+        wait: ":RAG",
+      },
       agent: "streamMockAgent",
+      isResult: true,
     },
     RAG: {
-      inputs: [":sentiment", ":talkAnalysis"],
+      inputs: {
+        wait: [":sentiment", ":talkAnalysis"],
+      },
       agent: "streamMockAgent",
       params: {
         message: "foo",
       },
+      isResult: true,
     },
     data2speech: {
-      inputs: [":RAG", ":talkAnalysis", ":onpremiseApi"],
+      inputs: {
+        array: [":RAG", ":talkAnalysis", ":onpremiseApi"],
+      },
       agent: "streamMockAgent",
+      isResult: true,
     },
     responseToCustomer: {
       agent: "streamMockAgent",
-      inputs: [":data2speech"],
+      inputs: {
+        wait: [":data2speech"],
+      },
       params: {
         message: "response",
       },
       isResult: true,
     },
     storeToDatabase: {
-      inputs: [":sentiment", ":talkAnalysis", ":onpremiseApi"],
+      inputs: {
+        waits: [":sentiment", ":talkAnalysis", ":onpremiseApi"],
+      },
       agent: "streamMockAgent",
       params: {
         message: "response",
       },
+      isResult: true,
     },
   },
 };
@@ -162,10 +188,12 @@ export const graphDataSet = [
     data: graph_callcenter,
     name: "callcenter",
   },
+  /*
   {
     data: graph_data1,
     name: "slashgpt",
-  },
+    },
+  */
   {
     data: graph_data2,
     name: "stream mock",
