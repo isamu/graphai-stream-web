@@ -18,14 +18,16 @@ const graph_data1 = {
       inputs: { array: ":people" },
     },
     query: {
-      agent: "slashGPTAgent",
+      agent: "openAIAgent",
       params: {
         manifest: {
-          model: "gpt-3.5-turbo",
-          prompt: "Describe about the person in less than 100 words",
+          model: "gpt-4o",
+          system: "Describe about the person in less than 100 words",
         },
       },
-      inputs: [":retriever.item"],
+      inputs: {
+        prompt: ":retriever.item"
+      },
     },
     reducer1: {
       agent: "popAgent",
@@ -188,12 +190,10 @@ export const graphDataSet = [
     data: graph_callcenter,
     name: "callcenter",
   },
-  /*
   {
     data: graph_data1,
-    name: "slashgpt",
-    },
-  */
+    name: "loop",
+  },
   {
     data: graph_data2,
     name: "stream mock",
