@@ -52,7 +52,7 @@ import { useCytoscape } from "@receptron/graphai_vue_cytoscape";
 const serverAgentIds = ["groqAgent", "slashGPTAgent", "openAIAgent", "fetchAgent", "wikipediaAgent"];
 const streamAgents = ["groqAgent", "slashGPTAgent", "openAIAgent", "streamMockAgent"];
 
-const useAgentFilter = (callback: (context: AgentFunctionContext, data: T) => void) => {
+const useAgentFilter = (callback: (context: AgentFunctionContext, data: string) => void) => {
   const streamAgentFilter = streamAgentFilterGenerator(callback);
 
   const agentFilters = [
