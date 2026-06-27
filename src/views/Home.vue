@@ -42,8 +42,10 @@ import { defineComponent, ref, computed } from "vue";
 import { GraphAI, AgentFunctionContext } from "graphai";
 
 import * as agents from "@graphai/vanilla";
-// import { sleeperAgent } from "@graphai/sleeper_agents";
-import { streamAgentFilterGenerator, httpAgentFilter } from "@graphai/agent_filters";
+// Import directly from the leaf packages: the @graphai/agent_filters barrel pulls in the
+// CLI-only console step runner (@inquirer/input → node:async_hooks), which crashes in the browser.
+import { streamAgentFilterGenerator } from "@graphai/stream_agent_filter";
+import { httpAgentFilter } from "@graphai/agent_filters/lib/filters/http_client";
 
 import { graphDataSet } from "@/utils/graph_data";
 
