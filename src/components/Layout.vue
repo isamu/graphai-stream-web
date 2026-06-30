@@ -26,15 +26,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive, ref } from "vue";
+import { defineComponent, ref } from "vue";
 
 import { useI18nParam } from "@/i18n/utils";
 
 import Languages from "@/components/Languages.vue";
 import MenuList from "@/components/MenuList.vue";
-interface UserData {
-  user: User | null;
-}
 
 export default defineComponent({
   name: "AppLayout",
@@ -43,8 +40,6 @@ export default defineComponent({
     MenuList,
   },
   async setup() {
-    const user = reactive<UserData>({ user: null });
-
     const menu = ref(false);
 
     useI18nParam();
@@ -53,8 +48,6 @@ export default defineComponent({
       menu.value = !menu.value;
     };
     return {
-      user,
-
       menu,
       toggleMenu,
     };

@@ -41,8 +41,10 @@ import { defineComponent, ref } from "vue";
 import { GraphAI, AgentFunctionContext } from "graphai";
 
 import * as agents from "@graphai/vanilla";
-import { sleeperAgent } from "@graphai/sleeper_agents";
-import { streamAgentFilterGenerator, httpAgentFilter } from "@graphai/agent_filters";
+// Import directly from the leaf packages: the @graphai/agent_filters barrel pulls in the
+// CLI-only console step runner (@inquirer/input → node:async_hooks), which crashes in the browser.
+import { streamAgentFilterGenerator } from "@graphai/stream_agent_filter";
+import { httpAgentFilter } from "@graphai/agent_filters/lib/filters/http_client";
 import { useCytoscape } from "@receptron/graphai_vue_cytoscape";
 
 import { generateGraph } from "@/utils/graph";
@@ -50,7 +52,7 @@ import { generateGraph } from "@/utils/graph";
 const serverAgentIds = ["groqAgent", "slashGPTAgent", "openAIAgent", "fetchAgent", "wikipediaAgent"];
 const streamAgents = ["groqAgent", "slashGPTAgent", "openAIAgent", "streamMockAgent"];
 
-const useAgentFilter = (callback: (context: AgentFunctionContext, data: T) => void) => {
+const useAgentFilter = (callback: (context: AgentFunctionContext, data: string) => void) => {
   const streamAgentFilter = streamAgentFilterGenerator(callback);
 
   const agentFilters = [
@@ -100,11 +102,8 @@ export default defineComponent({
     const runGraph = async () => {
       result.value = {};
       streamingData.value = {};
-      const graphai = new GraphAI(selectedGraph.value, { ...agents, sleeperAgent }, { agentFilters, bypassAgentIds: serverAgentIds });
-      graphai.onLogCallback = (log) => {
-        const isServer = serverAgentIds.includes(log.agentId);
-        updateCytoscape(log.nodeId, log.state === "executing" && isServer ? "executing-server" : log.state);
-      };
+      const graphai = new GraphAI(selectedGraph.value, { ...agents }, { agentFilters, bypassAgentIds: serverAgentIds });
+      graphai.registerCallback(updateCytoscape);
       result.value = await graphai.run();
     };
 

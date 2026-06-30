@@ -14,7 +14,7 @@ export default defineComponent({
   name: "HomePage",
   components: {},
   setup() {
-    const list = ref([]);
+    const list = ref<[string, unknown][]>([]);
     const getdata = async () => {
       const url = "http://localhost:8085/agents/list";
       const result = await fetch(url, {
@@ -23,11 +23,10 @@ export default defineComponent({
         },
         method: "GET",
       });
-      const data = await result.json();
-      list.value = Object.keys(data).map((key) => {
+      const data: Record<string, unknown> = await result.json();
+      list.value = Object.keys(data).map((key): [string, unknown] => {
         return [key, data[key]];
       });
-      // console.log(data);
     };
     getdata();
 
