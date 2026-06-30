@@ -26,7 +26,7 @@ const graph_data1 = {
         },
       },
       inputs: {
-        prompt: ":retriever.item"
+        prompt: ":retriever.item",
       },
     },
     reducer1: {

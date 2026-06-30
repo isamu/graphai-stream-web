@@ -44,7 +44,7 @@ import * as agents from "@graphai/vanilla";
 // Import directly from the leaf packages: the @graphai/agent_filters barrel pulls in the
 // CLI-only console step runner (@inquirer/input → node:async_hooks), which crashes in the browser.
 import { streamAgentFilterGenerator } from "@graphai/stream_agent_filter";
-import { httpAgentFilter } from "@graphai/agent_filters/lib/filters/http_client";
+import { httpAgentFilter } from "@graphai/http_client_agent_filter";
 import { useCytoscape } from "@receptron/graphai_vue_cytoscape";
 
 import { generateGraph } from "@/utils/graph";
