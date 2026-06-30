@@ -47,15 +47,19 @@ export const generateGraph = (staticNode: number = 10, computedNode: number = 50
     // const name = "node_" + k;
     const name = agentNames[index] + "_" + k;
 
-    const inputs = arrays(randomInt(3) + 1).map(() => {
+    const inputRefs = arrays(randomInt(3) + 1).map(() => {
       const rand = randomInt2(inputsNode.length);
       return ":" + inputsNode[rand];
     });
 
     // Ensure that all static nodes are used by other nodes
     if (k < staticNode) {
-      inputs.push(":" + inputsNode[k]);
+      inputRefs.push(":" + inputsNode[k]);
     }
+
+    // streamMockAgent ignores its inputs (it streams params.message); the refs only
+    // establish dependency order, so the named-input keys are arbitrary.
+    const inputs = Object.fromEntries(inputRefs.map((ref, i) => ["input" + i, ref]));
 
     nodes[name] = {
       agent: "streamMockAgent",
@@ -70,7 +74,7 @@ export const generateGraph = (staticNode: number = 10, computedNode: number = 50
   });
 
   return {
-    version: 0.3,
+    version: 0.5,
     nodes,
     concurrency,
   };
